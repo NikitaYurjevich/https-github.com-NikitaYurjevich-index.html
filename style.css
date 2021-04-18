@@ -1,0 +1,401 @@
+@import url("https://fonts.googleapis.com/css2?family=Train+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Train+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+body{
+  margin: 0px;
+  background-color: black;
+  background-image: url("http://uploads.webflow.com/57e36039ab1957093a7f7785/57e3603aab1957093a7f77b0_bg-index%20(2).jpg");
+  background-position: top left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-transform: uppercase;
+  font-family: 'Press Start 2P';
+  font-weight: bold;
+}
+a{
+  text-decoration: none;
+}
+ul{
+  list-style-type: none;
+}
+
+.button-style{
+  background-color: black;
+  color: white;
+  padding: 14px 28px;
+  font-size: 12px;
+  border: none;
+  font-family: 'Press Start 2P';
+}
+.button-style:hover{
+  background-color: rgb(124, 130, 0);
+}
+.main-header{
+  background-color: black;
+  margin: 0px 0px 75px;
+  padding: 10px;
+  font-size: 12px;
+}
+.main-header a{
+  color: white;
+}
+.main-navigation{
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto;
+}
+.site-navigation{
+  display: flex;
+  min-width: 80%;
+  justify-content: space-between;
+}
+main{
+  width: 70%;
+  margin:auto;
+}
+h1{
+  margin: auto;
+  margin-bottom: 75px;
+  color: white;
+  text-align: center;
+}
+
+.part-one{
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+.part-two{
+  font-size: 48px;
+}
+.features{
+  padding: 0px;
+  margin-bottom: 75px;
+  color: white;
+  text-align: center;
+}
+.features-list{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0;
+}
+.features-item{
+  width: 30%;
+}
+.features-item-title{
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+.features-item-romb{
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  margin: auto;
+  transform: rotate(45deg);
+  margin-bottom: 50px;
+}
+.newsgallery{
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 75px;
+}
+.newsgallery h2{
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+.newsgallery p{
+font-size: 12px;
+margin-bottom: 5px;
+}
+.news,
+.gallery{
+  width: 45%;
+  padding: 30px 60px 55px 80px;
+}
+.news-list{
+  padding: 0;
+}
+.news-item{
+  width: 350px;
+  margin-bottom: 30px;
+}
+.news-item span{
+  margin-right: 20px;
+  font-weight: lighter;
+  text-transform: lowercase;
+  font-size: 12px;
+}
+.news-item a{
+   text-transform: capitalize;
+   text-decoration: underline;
+   font-size: 12px;
+}
+#gallery-photo{
+  width: 100%;
+  height: auto;
+  max-width: 290px;
+}
+.gallery-button{
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  width: 290px;
+}
+.gallery-button button{
+  width: 47%;
+}
+.form-row{
+  display: flex;
+  justify-content: space-between;
+}
+.form-row input{
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid black;
+  margin-left: 0px;
+  width: 38%;
+}
+.form-button{
+  width: 95%;
+  margin-top: 20px;
+}
+.gallery p{
+  font-size: 12px;
+}
+.contacts-section p{
+  margin-bottom: 35px;
+  line-height: 20px;
+}
+#phone{
+  text-decoration: underline;
+  color: rgb(127, 148, 0);
+}
+.footer-main{
+  margin:0;
+  background-color: rgb(40, 40, 40);
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 15% 70px;
+  color: white;
+  font-size: 12px;
+}
+.footer-contacts{
+  line-height: 20px;
+}
+.footer-contacts a{
+  color: white;
+  text-decoration: underline;
+}
+.social-links ul{
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+}
+.social-links p,
+.copyright p{
+  text-align: center;
+  margin-bottom: 25px;
+}
+.social-links a{
+  margin: 0px 5px;
+  padding: 14px 20px;
+}
+
+#logoVk{
+  background-image: url("http://uploads.webflow.com/57e36039ab1957093a7f7785/57e3603aab1957093a7f7799_sprite-social.png");
+  background-position: 8px 7px;
+  background-size: auto;
+}
+#logoInstagram{
+  background-image: url("http://uploads.webflow.com/57e36039ab1957093a7f7785/57e3603aab1957093a7f7799_sprite-social.png");
+  background-position: 46% 7px;
+  background-size: auto;
+}
+#logoFacebook{
+  background-image: url("http://uploads.webflow.com/57e36039ab1957093a7f7785/57e3603aab1957093a7f7799_sprite-social.png");
+  background-position: 108% 7px;
+  background-size: auto;
+}
+
+.modal{
+  display: none;
+  background: white;
+  position: fixed;
+  top: 120px;
+  left: 50%;
+  margin-left: -230px;
+}
+@keyframes bounce{
+  0%   { transform: translateY(-2000px);}
+  70%  { transform: translateY(30px);}
+  90%  { transform: translateY(-10px);}
+  100% { transform: translateY(0);}
+}
+
+.modal-show{
+  display: block;
+  animation-name: bounce;
+  animation-duration: 0.7s;
+}
+@keyframes shake{
+  0%, 100%                { transform: translate(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(-10px); }
+  20%, 40%, 60%, 80%      { transform: translate(10px); }
+}
+.modal-error{
+  animation-name: shake;
+  animation-duration: 0.7s;
+}
+.modal-login{
+  width: 300px;
+  padding: 30px 80px 50px;
+}
+.modal-close{
+  background: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 22px;
+  height: 22px;
+  border: 0;
+
+  font-size: 0;
+  cursor: pointer;
+}
+.modal-close::before,
+.modal-close::after{
+  content: "";
+
+  position: absolute;
+  right: 2px;
+
+  width: 19px;
+  height: 3px;
+
+  background-color: black;
+}
+
+.modal-close::before{
+  transform: rotate(45deg);
+}
+
+.modal-close::after{
+  transform: rotate(-45deg);
+}
+
+.modal-login h2{
+  margin: 0;
+  margin-bottom: 30px;
+
+  font-size: 18px;
+}
+
+.modal-description{
+  margin: 0;
+  margin-bottom: 20px;
+
+  font-size: 12px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"]{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 15px;
+
+  font-weight: bold;
+  font-family: Georgia;
+
+  border: 2px solid black;
+  margin-bottom: 18px;
+}
+
+.login-form input:focus{
+  border-color: rgb(145, 163, 0);
+}
+
+#user-login{
+  background-image: url("http://uploads.webflow.com/57e36039ab1957093a7f7785/57e3603aab1957093a7f77b9_form.png");
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+#user-password{
+  background-image: url("http://uploads.webflow.com/57e36039ab1957093a7f7785/57e3603aab1957093a7f77b9_form.png");
+  background-position: bottom left;
+  background-repeat: no-repeat;
+}
+
+.login-help{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  font-size: 9px;
+}
+
+.login-help a{
+  line-height: 25px;
+  text-decoration: underline;
+  color: black;
+}
+
+.login-help input{
+  cursor: pointer;
+}
+.login-form button{
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.registry{
+  color: black;
+  font-size: 11px;
+  text-decoration: underline;
+
+  display: block;
+  text-align: center;
+}
+
+@media(max-width:1220px) {
+  .gallery{
+    padding-left: 40px;
+  }
+  .news{
+    padding-right: 0px;
+  }
+}
+
+@media(max-width:1070px){
+  .features-list{
+    flex-direction: column;
+  }
+  .features-item{
+    width: 100%;
+  }
+
+  .newsgallery{
+    flex-direction: column;
+  }
+  .news,
+  .gallery{
+    padding: 0px;
+    padding-top: 20px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .gallery-button{
+    margin:auto;
+    margin-top: 10px;
+  }
+  footer{
+    flex-direction: column;
+  }
+  footer div{
+    margin: auto;
+    margin-bottom: 50px;
+  }
+}

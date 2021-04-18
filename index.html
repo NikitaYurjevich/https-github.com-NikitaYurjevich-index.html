@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>indexRM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="main-navigation">
+    <ul class="site-navigation">
+      <li><a href="">Информация</a></li>
+      <li><a href="">Новости</a></li>
+      <li><a href="">Прайс-лист</a></li>
+      <li><a href="">Магазин</a></li>
+      <li><a href="">Контакты</a></li>
+    </ul>
+    <ul class="user-navigation">
+      <li>
+        <img src="http://uploads.webflow.com/57e36039ab1957093a7f7785/57e3603aab1957093a7f77b4_icon-enter-white.png">
+        <a href="#" class="login-link">Вход</a>
+
+      </li>
+    </ul>
+  </nav>
+  </header>
+  <main>
+    <h1 class="part-one">Барбершоп</h1>
+    <h1 class="part-two">"Бородинский"</h1>
+    <section class="features">
+      <ul class="features-list">
+        <li class="features-item">
+          <h3 class="features-item-title">Быстро</h3>
+          <div class="features-item-romb"></div>
+          <p class="features-item-text">Мы делаем свою работу быстро!</p>
+        </li>
+        <li class="features-item">
+          <h3 class="features-item-title">Круто</h3>
+          <div class="features-item-romb"></div>
+          <p class="features-item-text">Забудьте, как вы стриглись раньше.</p>
+        </li>
+        <li class="features-item">
+          <h3 class="features-item-title">Дорого</h3>
+          <div class="features-item-romb"></div>
+          <p class="features-item-text">Наши мастера - профессионалы своего дела.</p>
+        </li>
+      </ul>
+    </section>
+    <div class="newsgallery">
+    <section class="news">
+      <h2 class="news-title">Новости</h2>
+      <ul class="news-list">
+        <li class="news-item">
+          <p>Секреты мягкой и послушной бороды</p>
+          <span><em>Сегодня</em></span><a href="">Подробнее</a>
+        </li>
+        <li class="news-item">
+          <p>Нам наконец завезли музыкальный проигрыватель!</p>
+          <span><em>14 февраля</em></span><a href="">Подробнее</a>
+        </li>
+        <li class="news-item">
+          <p>Секреты мягкой и послушной бороды</p>
+          <span><em>9 февраля</em></span><a href="">Подробнее</a>
+        </li>
+      </ul>
+      <a class="button-style" href="">Все новости</a>
+    </section>
+    <section class="gallery">
+      <h2 class="gallery-title">Фотогалерея</h2>
+      <img id="gallery-photo" src="https://avatars.mds.yandex.net/get-zen_doc/1245197/pub_5e6cf49612bb2521083a617e_5e6cf4b215b53f03073e4814/scale_1200"/>
+      <div class="gallery-button">
+      <button onclick="prev()" class="button-style">Назад</button>
+      <button onclick="next()" class="button-style">Вперед</button>
+       </div>
+    </section>
+  </div>
+    <div class="newsgallery">
+      <section class="news contacts-section">
+        <h2>Контакты</h2>
+        <p>Barbershop Borodinskii<br>
+           Адрес: Санкт-Петербург
+           Телефон: <span id="phone">+7(999)999-99-99</span></p>
+        <p>Время работы:<br>
+           Пн-пт: с 10:00 до 22:00<br>
+           Сб-вс: с 10:00 до 19:00</p>
+           <a class="button-style" href="">Записаться</a>
+      </section>
+      <section class="gallery">
+        <h2>Записаться</h2>
+        <p>Укажите желаемую дату и время и мы свяжемся с
+                               вами для подтверждения брони</p>
+
+           <form method="POST">
+             <div class="form-row">
+           <input type="text" placeholder="Имя">
+           <input type="number" placeholder="Время">
+            </div>
+         <div class="form-row">
+           <input type="text" placeholder="Дата">
+           <input type="tel" placeholder="Телефон">
+         </div>
+         <button class="button-style form-button" type="submit">Отправить</button>
+       </form>
+
+      </section>
+    </div>
+  </main>
+  <footer class="footer-main">
+    <div class="footer-contacts">
+      <p>Barbershop "Borodinski"<br>
+         Адрес: Санкт-Петербург<br>
+         Телефон: +7(922)-187-35-14</p>
+         <a href="">Как проехать?</a>
+    </div>
+    <div class="social-links">
+      <p>Давайте дружить!</p>
+        <a id="logoVk" class="button-style" href="http//vk.com"></a>
+        <a id="logoInstagram" class="button-style" href="http//instagram.com"></a>
+        <a id="logoFacebook" class="button-style" href="http//facebook.com"></a>
+    </div>
+    <div class="copyright">
+      <p>Автор:</p>
+      <a class="button-style" href="">vk.com.author</a>
+    </div>
+  </footer>
+
+  <section class="modal modal-login">
+    <button class="modal-close">Закрыть</button>
+    <h2>Вход в личный кабинет</h2>
+    <p class="modal-description">Введите логин и пароль
+        для входа в ваш кабинет пользователя:</p>
+        <form class="login-form" method="post">
+          <input type="text" placeholder="Введите логин"
+                            name="login" id="user-login">
+          <input type="password" placeholder="Введите пароль"
+                          name="password" id="user-password">
+          <p class="login-help">
+            <label>
+              <input type="checkbox" name="remember">
+              Запомнить меня
+            </label>
+            <a href="">Я забыл пароль</a>
+          </p>
+          <button class="button-style" type="submit">Войти</button>
+        </form>
+        <a class="registry" href="">Зарегистрироваться</a>
+  </section>
+  <script src="Slider.js"></script>
+  <script src="PopUp.js"></script>
+</body>
+</html>
