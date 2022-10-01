@@ -1,0 +1,400 @@
+body {
+    background-color: #003129;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 35px;
+    margin-bottom: 50px;
+}
+
+.header__leaves {
+    position: absolute;
+    transform: rotate(-70deg);
+    left: 0;
+    top: -30px;
+    width: 32%;
+    z-index: -1;
+}
+
+.header__logo {
+    width: 29%;
+    margin-right: 8%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #F0CED5;
+    border-radius: 40%;
+    transition: all .3s;
+}
+.close-btn:hover, .close-btn:focus {
+    transform: scale(1.1);
+}
+.close-btn:active {
+    transform: scale(0.9);
+}
+
+.close-btn::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 25px;
+    width: 2px;
+    height: 40px;
+    background-color: #F0CED5;
+    transform: rotate(-45deg);
+}
+.close-btn::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 25px;
+    width: 2px;
+    height: 40px;
+    background-color: #F0CED5;
+    transform: rotate(45deg);
+}
+
+.preview-container {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.preview-branch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: #EF7D3A;
+}
+@keyframes fall-leaves-animation {
+    10% {
+        opacity: 1;
+        transform: translate(-50px, 70px) rotate(-20deg);
+    }
+    20% {
+        transform: translate(50px, 140px) rotate(-40deg);
+    }
+    30% {
+        transform: translate(-50px, 210px) rotate(-20deg);
+    }
+    40% {
+        transform: translate(50px, 280px) rotate(-40deg);
+    }
+    50% {
+        transform: translate(-50px, 350px) rotate(-20deg);
+    }
+    60% {
+        transform: translate(50px, 420px) rotate(-40deg);
+    }
+    70% {
+        transform: translate(-50px, 490px) rotate(-20deg);
+    }
+    80% {
+        transform: translate(50px, 560px) rotate(-40deg);
+    }
+    90% {
+        transform: translate(-50px, 630px) rotate(-20deg);
+    }
+}
+@keyframes fall-leaves-animation-2 {
+    10% {
+        opacity: 1;
+        transform: translate(50px, 70px) rotate(-20deg);
+    }
+    20% {
+        transform: translate(-50px, 140px) rotate(-40deg);
+    }
+    30% {
+        transform: translate(50px, 210px) rotate(-20deg);
+    }
+    40% {
+        transform: translate(-50px, 280px) rotate(-40deg);
+    }
+    50% {
+        transform: translate(50px, 350px) rotate(-20deg);
+    }
+    60% {
+        transform: translate(-50px, 420px) rotate(-40deg);
+    }
+    70% {
+        transform: translate(50px, 490px) rotate(-20deg);
+    }
+    80% {
+        transform: translate(-50px, 560px) rotate(-40deg);
+    }
+    90% {
+        transform: translate(50px, 630px) rotate(-20deg);
+    }
+}
+.preview-green-tree {
+    position: absolute;
+    top: -50px;
+    left: 20%;
+    transform: rotate(-20deg);
+}
+.preview-white-tree {
+    position: absolute;
+    top: -90px;
+    right: 5%;
+}
+.preview-white-tree-2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.preview-green-tree-2 {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+}
+.preview-branch-2 {
+    position: absolute;
+    top: -120px;
+    right: 0;
+    transform: rotate(180deg);
+}
+.preview-broccoli {
+    position: absolute;
+    top: 150px;
+    left: 8%;
+    transform: rotate(-120deg);
+}
+.preview-broccoli-2 {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    transform: rotate(160deg);
+}
+.fall-leaves-animation {
+    animation: fall-leaves-animation 3s ease-in-out;
+    opacity: 0;
+}
+.fall-leaves-animation-2 {
+    animation: fall-leaves-animation-2 3s ease-in-out;
+    opacity: 0;
+}
+
+.franchise-btn {
+    z-index: 2;
+    background-color: #289C38;
+    padding: 0 10px;
+    margin: auto;
+    border-radius: 10px;
+    color: #fff;
+    font-family: "PT Sans", sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    animation: pulsation 1.5s infinite ease-in-out;
+}
+@keyframes pulsation {
+    0% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.main-container {
+    display: none;
+}
+
+.flexbox-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.title {
+    width: 72%;
+    max-width: 575px;
+    padding: 0 24px;
+    animation: title-appearance 1.5s;
+}
+
+.detailed-link {
+    background-color: #289C38;
+    padding: 13px 81px;
+    margin: auto;
+    border-radius: 10px;
+    color: #fff;
+    font-family: "PT Sans", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    z-index: 1;
+    transition: background-color .3s, border .3s;
+    border: 1px solid #003129;
+    animation: title-appearance 1.5s;
+}
+.detailed-link:hover {
+    background-color: #07503C;
+    border: 1px solid #fff;
+}
+.detailed-link:active, .detailed-link:focus-visible {
+    background-color: #69ACDF;
+    border: 2px solid #fff;
+}
+
+@keyframes title-appearance {
+    from {
+        opacity: 0;
+        transform: translateX(-300px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.bush {
+    position: absolute;
+    left: 0;
+    bottom: -30px;
+    width: 136px;
+    z-index: -1;
+    animation: decoration-appearance 1.5s;
+}
+
+.yellow-branch {
+    position: absolute;
+    left: 0;
+    bottom: -100px;
+    width: 136px;
+    z-index: -1;
+    animation: decoration-appearance 1.5s;
+}
+
+.green-tree {
+    position: absolute;
+    right: 0;
+    bottom: -140px;
+    width: 272px;
+    transform: rotateX(180deg) scaleY(-1);
+    z-index: -1;
+    animation: decoration-appearance 1.5s;
+}
+
+.white-tree {
+    display: none;
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    z-index: -2;
+    animation: decoration-appearance 1.5s;
+}
+
+.mushrooms {
+    position: absolute;
+    right: 0;
+    bottom: -110px;
+    z-index: -1;
+    width: 234px;
+    animation: decoration-appearance 1.5s;
+}
+
+.broccoli {
+    position: absolute;
+    right: -50px;
+    bottom: -40px;
+    z-index: -1;
+    width: 156px;
+    animation: decoration-appearance 1.5s;
+}
+
+@keyframes decoration-appearance {
+    from {
+        opacity: 0;
+        transform: translateY(300px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .header {
+        margin-bottom: 10%;
+    }
+
+    .title {
+        margin-bottom: 70px;
+    }
+
+    .bush {
+        width: 38%;
+        bottom: -10px;
+    }
+
+    .yellow-branch {
+        bottom: -50px;
+        width: 34%;
+    }
+}
+
+@media screen and (min-width: 901px) {
+    .close-btn {
+        top: 30px;
+        right: 30px;
+    }
+
+    .header__leaves {
+        top: -9%;
+        left: -15%;
+        width: 48%;
+    }
+
+    .green-tree {
+        width: 45%;
+    }
+
+    .white-tree {
+        width: 50%;
+    }
+
+    .mushrooms {
+        width: 30%;
+    }
+
+    .main-container {
+        justify-content: flex-start;
+    }
+
+    .title {
+        margin-left: 8%;
+    }
+
+    .detailed-link {
+        margin-left: 10%;
+    }
+}
+
+@media screen and (min-width: 1040px) {
+    .white-tree {
+        display: block;
+
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .title {
+        margin-left: 9%;
+    }
+}
