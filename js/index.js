@@ -45,10 +45,10 @@ const HANDS_POSITIONS = {
 let handsCurrentPosition = HANDS_POSITIONS.topLeft;
 
 function loadSprites() {
-    handsLeft = loadImage('./../img/hands_left.png');
-    handsRight = loadImage('./../img/hands_right.png');
-    decorations = loadImage('./../img/decorations.png');
-    roll = loadImage('./../img/roll.png');
+    handsLeft = loadImage('./img/hands_left.png');
+    handsRight = loadImage('./img/hands_right.png');
+    decorations = loadImage('./img/decorations.png');
+    roll = loadImage('./img/roll.png');
 }
 
 const SCORES = {
