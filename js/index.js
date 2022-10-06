@@ -1,8 +1,9 @@
-let handsLeft, handsRight, decorations, roll;
+let handsLeft, handsRight, decorations, roll, logo;
 let actualHands;
 const loadImage = url => {
     const image = new Image();
-    image.src = url;
+    image.src = `${url}-min.png`;
+    image.srcset = `${url}@2x-min.png 2x, ${url}@3x-min.png 3x`;
     return image
 }
 
@@ -38,10 +39,11 @@ const HANDS_POSITIONS = {
 let handsCurrentPosition = HANDS_POSITIONS.topLeft;
 
 function loadSprites() {
-    handsLeft = loadImage('./img/hands_left.png');
-    handsRight = loadImage('./img/hands_right.png');
-    decorations = loadImage('./img/decorations.png');
-    roll = loadImage('./img/roll.png');
+    handsLeft = loadImage('./img/hands_left');
+    handsRight = loadImage('./img/hands_right');
+    decorations = loadImage('./img/decorations');
+    roll = loadImage('./img/roll');
+    logo = loadImage('./img/logo');
 }
 
 const SCORES = {
@@ -72,6 +74,10 @@ const getTimer = () => {
     ctx.textAlign = 'center';
     ctx.fillText(`00:${secondsRemaining}`, canvas.width / 2, 150);
 };
+
+// LOGO
+const MIN_LOGO_WIDTH = 200;
+const LOGO_WIDTH = canvas.width / 5 > MIN_LOGO_WIDTH ? canvas.width / 5 : MIN_LOGO_WIDTH;
 
 // GAME
 const gameFrame = () => {
@@ -119,6 +125,7 @@ const gameFrame = () => {
 
     getScoreboard();
     getTimer();
+    ctx.drawImage(logo, (canvas.width - LOGO_WIDTH) / 2, 200, LOGO_WIDTH, LOGO_WIDTH * 0.23);
 }
 const endGameFrame = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
