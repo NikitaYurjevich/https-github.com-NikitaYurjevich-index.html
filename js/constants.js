@@ -9,6 +9,7 @@ const GAME_DURATION = 10000;
 let SCORES_TO_WIN = 5;
 
 const MAX_HANDS_HEIGHT = 250;
+const MIN_HANDS_HEIGHT = 200;
 
 const MIN_POSITION_HEIGHT = 200;
 const POSITION_SIZE = canvas.width / 5;

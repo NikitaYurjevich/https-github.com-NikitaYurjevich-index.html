@@ -86,12 +86,6 @@ const gameFrame = () => {
     ctx.fillStyle = '#404853';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // DRAW SPRITES
-    if (actualHands) {
-        ctx.drawImage(actualHands, handsCurrentPosition.x, handsCurrentPosition.y, handsHeight * 0.7, handsHeight);
-        ctx.drawImage(decorations, -canvas.width * 0.2, canvas.height / 4, canvas.width * 1.4, canvas.height / 2);
-    }
-
     const paddingX = canvas.width / 5;
     const paddingY = 0;
 
@@ -118,6 +112,12 @@ const gameFrame = () => {
     // ctx.strokeRect(ROLLS_POSITIONS.bottomRight.second.x, ROLLS_POSITIONS.bottomRight.second.y, ROLL_SIZE, ROLL_SIZE);
     // ctx.strokeRect(ROLLS_POSITIONS.bottomRight.third.x, ROLLS_POSITIONS.bottomRight.third.y, ROLL_SIZE, ROLL_SIZE);
 
+    // DRAW SPRITES
+    if (actualHands) {
+        ctx.drawImage(actualHands, handsCurrentPosition.x, handsCurrentPosition.y, handsHeight / 1.24, handsHeight);
+        ctx.drawImage(decorations, -canvas.width * 0.2, canvas.height / 4, canvas.width * 1.4, canvas.height / 2);
+    }
+
     // DRAW ROLLS
     rollsList.forEach((rollItem) => {
         ctx.drawImage(roll, rollItem.step.x, rollItem.step.y, ROLL_SIZE, ROLL_SIZE);
@@ -125,7 +125,7 @@ const gameFrame = () => {
 
     getScoreboard();
     getTimer();
-    ctx.drawImage(logo, (canvas.width - LOGO_WIDTH) / 2, 200, LOGO_WIDTH, LOGO_WIDTH * 0.23);
+    ctx.drawImage(logo, (canvas.width - LOGO_WIDTH) / 2, 180, LOGO_WIDTH, LOGO_WIDTH * 0.23);
 }
 const endGameFrame = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -208,6 +208,10 @@ function onMoveHands(e) {
             handsCurrentPosition = HANDS_POSITIONS.bottomRight;
             actualHands = handsRight;
         }
+        handsCurrentPosition = {
+            x: HANDS_POSITIONS.topRight.x - 50,
+            y: handsCurrentPosition.y
+        };
     }
     window.requestAnimationFrame(gameFrame);
 }
