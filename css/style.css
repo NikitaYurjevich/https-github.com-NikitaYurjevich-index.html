@@ -1,5 +1,8 @@
 body {
     margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
 #canvas {
@@ -41,11 +44,13 @@ body {
     color: #fff;
     font-family: 'PT Sans', sans-serif;
     font-size: 42px;
+    text-align: center;
 }
 .start-description {
     color: #fff;
     font-family: 'PT Sans', sans-serif;
     font-size: 34px;
+    text-align: center;
 }
 
 .end-game__box {
@@ -82,6 +87,7 @@ body {
     color: #fff;
     font-family: 'PT Sans', sans-serif;
     font-size: 42px;
+    text-align: center;
 }
 
 .end-game__btn {

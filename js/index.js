@@ -8,16 +8,9 @@ const loadImage = url => {
 
 // HANDS
 let handsHeight = canvas.width / 3;
-const MAX_HANDS_HEIGHT = 250;
 if (handsHeight > MAX_HANDS_HEIGHT) {
     handsHeight = MAX_HANDS_HEIGHT;
 }
-
-const POSITION_SIZE = canvas.width / 5;
-const LEFT_POSITIONS_X = canvas.width * 0.18;
-const RIGHT_POSITIONS_X = canvas.width - LEFT_POSITIONS_X - POSITION_SIZE;
-const TOP_POSITIONS_Y = canvas.height / 2.8;
-const BOTTOM_POSITIONS_Y = canvas.height / 1.4;
 
 const HANDS_POSITIONS = {
     topLeft: {
@@ -66,7 +59,7 @@ const addScore = (rollPositionId) => {
 
 const getScoreboard = () => {
     ctx.fillStyle = '#9FCABE';
-    ctx.fillRect(canvas.width / 4, 0, canvas.width / 2, 100);
+    ctx.fillRect(0, 0, canvas.width, 100);
     ctx.font = "48px serif";
     ctx.fillStyle = '#FFF';
     ctx.textAlign = 'center';
@@ -89,17 +82,19 @@ const gameFrame = () => {
 
     // DRAW SPRITES
     if (actualHands) {
-        ctx.drawImage(actualHands, handsCurrentPosition.x, handsCurrentPosition.y, handsHeight * 0.8, handsHeight);
+        ctx.drawImage(actualHands, handsCurrentPosition.x, handsCurrentPosition.y, handsHeight * 0.7, handsHeight);
         ctx.drawImage(decorations, -canvas.width * 0.2, canvas.height / 4, canvas.width * 1.4, canvas.height / 2);
     }
 
-    // const padding = 50;
-    //
-    // ctx.strokeStyle = "white";
-    // ctx.strokeRect(LEFT_POSITIONS_X - padding / 2, TOP_POSITIONS_Y - padding / 2, POSITION_SIZE + padding, POSITION_SIZE + padding);
-    // ctx.strokeRect(LEFT_POSITIONS_X - padding / 2, BOTTOM_POSITIONS_Y - padding / 2, POSITION_SIZE + padding, POSITION_SIZE + padding);
-    // ctx.strokeRect(RIGHT_POSITIONS_X - padding / 2, TOP_POSITIONS_Y - padding / 2, POSITION_SIZE + padding, POSITION_SIZE + padding);
-    // ctx.strokeRect(RIGHT_POSITIONS_X - padding / 2, BOTTOM_POSITIONS_Y - padding / 2, POSITION_SIZE + padding, POSITION_SIZE + padding);
+    const paddingX = canvas.width / 5;
+    const paddingY = 0;
+
+    ctx.setLineDash([8]);
+    ctx.strokeStyle = "white";
+    ctx.strokeRect(LEFT_POSITIONS_X - paddingX / 2, TOP_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
+    ctx.strokeRect(LEFT_POSITIONS_X - paddingX / 2, BOTTOM_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
+    ctx.strokeRect(RIGHT_POSITIONS_X - paddingX / 2, TOP_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
+    ctx.strokeRect(RIGHT_POSITIONS_X - paddingX / 2, BOTTOM_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
     //
     // ctx.strokeRect(ROLLS_POSITIONS.topLeft.first.x, ROLLS_POSITIONS.topLeft.first.y, ROLL_SIZE, ROLL_SIZE);
     // ctx.strokeRect(ROLLS_POSITIONS.topLeft.second.x, ROLLS_POSITIONS.topLeft.second.y, ROLL_SIZE, ROLL_SIZE);
@@ -189,20 +184,20 @@ function startGame(isSecondLevel = null) {
 startGame();
 
 function onMoveHands(e) {
-    const padding = 50;
+    const padding = canvas.width / 10;
     if (e.clientX > LEFT_POSITIONS_X - padding && e.clientX < LEFT_POSITIONS_X + POSITION_SIZE + padding) {
-        if (e.clientY > TOP_POSITIONS_Y  - padding && e.clientY < TOP_POSITIONS_Y + POSITION_SIZE + padding) {
+        if (e.clientY > TOP_POSITIONS_Y && e.clientY < TOP_POSITIONS_Y + actualHeight) {
             actualHands = handsLeft;
             handsCurrentPosition = HANDS_POSITIONS.topLeft;
-        } else if(e.clientY > BOTTOM_POSITIONS_Y - padding && e.clientY < BOTTOM_POSITIONS_Y + POSITION_SIZE + padding) {
+        } else if(e.clientY > BOTTOM_POSITIONS_Y && e.clientY < BOTTOM_POSITIONS_Y + actualHeight) {
             actualHands = handsLeft;
             handsCurrentPosition = HANDS_POSITIONS.bottomLeft;
         }
-    } else if (e.clientX > RIGHT_POSITIONS_X - padding && e.clientX < RIGHT_POSITIONS_X + POSITION_SIZE + padding) {
-        if (e.clientY > TOP_POSITIONS_Y - padding && e.clientY < TOP_POSITIONS_Y + POSITION_SIZE + padding) {
+    } else if (e.clientX > RIGHT_POSITIONS_X - padding && e.clientX < RIGHT_POSITIONS_X + actualHeight + padding) {
+        if (e.clientY > TOP_POSITIONS_Y && e.clientY < TOP_POSITIONS_Y + actualHeight) {
             actualHands = handsRight;
             handsCurrentPosition = HANDS_POSITIONS.topRight;
-        } else if(e.clientY > BOTTOM_POSITIONS_Y - padding && e.clientY < BOTTOM_POSITIONS_Y + POSITION_SIZE + padding) {
+        } else if(e.clientY > BOTTOM_POSITIONS_Y && e.clientY < BOTTOM_POSITIONS_Y + actualHeight) {
             handsCurrentPosition = HANDS_POSITIONS.bottomRight;
             actualHands = handsRight;
         }
