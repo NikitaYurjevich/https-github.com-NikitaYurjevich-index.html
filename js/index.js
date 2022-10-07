@@ -209,6 +209,14 @@ function startGame(isSecondLevel = null) {
 
         window.addEventListener('mousemove', onMoveHands);
         const createRollIntervalId = setInterval(() => {
+            const leftHands = document.getElementById('leftHands');
+            if (handsIsCreated
+                && leftHands.style.visibility === 'hidden'
+                && document.getElementById('rightHands').style.visibility === 'hidden') {
+                leftHands.style.top = `${HANDS_POSITIONS.topLeft.y}px`;
+                leftHands.style.left = `${HANDS_POSITIONS.topLeft.x}px`;
+                leftHands.style.visibility = 'visible';
+            }
             createRoll();
         }, ROLL_CREATING_SPEED);
         const gameIntervalId = setInterval(() => {
