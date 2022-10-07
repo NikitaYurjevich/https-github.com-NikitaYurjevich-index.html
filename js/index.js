@@ -2,12 +2,16 @@ let handsLeft, handsRight, decorations, roll, logo;
 let actualHands;
 const loadImage = url => {
     const image = new Image();
+    image.width = canvas.width / 3 * 0.8;
+    image.height = canvas.width / 3;
     image.src = `${url}-min.png`;
-    image.srcset = `${url}@2x-min.png 2x, ${url}@3x-min.png 3x`;
-    return image
+    image.srcset = `${url}-min.png 1x, ${url}@2x-min.png 2x, ${url}@3x-min.png 3x`;
+    return image;
 }
 
 // HANDS
+let handsIsCreated = false;
+
 let handsHeight = canvas.width / 3;
 if (handsHeight > MAX_HANDS_HEIGHT) {
     handsHeight = MAX_HANDS_HEIGHT;
@@ -39,8 +43,8 @@ const HANDS_POSITIONS = {
 let handsCurrentPosition = HANDS_POSITIONS.topLeft;
 
 function loadSprites() {
-    handsLeft = loadImage('./img/hands_left');
-    handsRight = loadImage('./img/hands_right');
+    // handsLeft = loadImage('./img/hands_left');
+    // handsRight = loadImage('./img/hands_right');
     decorations = loadImage('./img/decorations');
     roll = loadImage('./img/roll');
     logo = loadImage('./img/logo');
@@ -81,6 +85,34 @@ const LOGO_WIDTH = canvas.width / 5 > MIN_LOGO_WIDTH ? canvas.width / 5 : MIN_LO
 
 // GAME
 const gameFrame = () => {
+    if (!handsIsCreated) {
+        const leftHands = document.createElement('img');
+        leftHands.id = 'leftHands';
+        leftHands.src = './img/hands_left-min.png';
+        leftHands.srcset = './img/hands_left@2x-min.png 2x, ./img/hands_left@3x-min.png 3x';
+        leftHands.width = handsHeight * 0.8;
+        leftHands.height = handsHeight;
+        leftHands.style.position = 'absolute';
+        leftHands.style.zIndex = '10';
+        leftHands.style.left = `${HANDS_POSITIONS.topLeft.x}px`;
+        leftHands.style.top = `${HANDS_POSITIONS.topLeft.y}px`;
+
+        const rightHands = document.createElement('img');
+        rightHands.id = 'rightHands';
+        rightHands.src = './img/hands_right-min.png';
+        rightHands.srcset = './img/hands_right@2x-min.png 2x, ./img/hands_right@3x-min.png 3x';
+        rightHands.width = handsHeight * 0.8;
+        rightHands.height = handsHeight;
+        rightHands.style.position = 'absolute';
+        rightHands.style.zIndex = '10';
+        rightHands.style.visibility = 'hidden';
+
+        document.body.appendChild(leftHands);
+        document.body.appendChild(rightHands);
+
+        handsIsCreated = true;
+    }
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // BACKGROUND
     ctx.fillStyle = '#404853';
@@ -113,10 +145,11 @@ const gameFrame = () => {
     // ctx.strokeRect(ROLLS_POSITIONS.bottomRight.third.x, ROLLS_POSITIONS.bottomRight.third.y, ROLL_SIZE, ROLL_SIZE);
 
     // DRAW SPRITES
-    if (actualHands) {
-        ctx.drawImage(actualHands, handsCurrentPosition.x, handsCurrentPosition.y, handsHeight / 1.24, handsHeight);
-        ctx.drawImage(decorations, -canvas.width * 0.2, canvas.height / 4, canvas.width * 1.4, canvas.height / 2);
-    }
+    // if (actualHands) {
+        // ctx.imageSmoothingQuality = "high";
+        // ctx.drawImage(actualHands, handsCurrentPosition.x, handsCurrentPosition.y, canvas.width / 3 * 0.8, canvas.width / 3);
+    // }
+    ctx.drawImage(decorations, -canvas.width * 0.2, canvas.height / 4, canvas.width * 1.4, canvas.height / 2);
 
     // DRAW ROLLS
     rollsList.forEach((rollItem) => {
@@ -138,6 +171,10 @@ const endGameFrame = () => {
 }
 
 function gameOverHandler() {
+
+    document.getElementById('leftHands').style.visibility = 'hidden';
+    document.getElementById('rightHands').style.visibility = 'hidden';
+
     document.getElementById('endGameBox').classList.add('end-game__box-appearance')
     if (SCORES._value >= SCORES_TO_WIN) {
         document.getElementById('endGameLose').style.display = 'none';
@@ -158,6 +195,7 @@ function gameOverHandler() {
 // ENTRYPOINT
 function startGame(isSecondLevel = null) {
     if (isSecondLevel) SCORES_TO_WIN = 10;
+
     timer = GAME_DURATION / 1000;
     SCORES.clear();
     document.getElementById('endGameBox').classList.remove('end-game__box-appearance')
@@ -168,7 +206,7 @@ function startGame(isSecondLevel = null) {
 
     loadSprites();
     setTimeout(() => {
-        actualHands = handsLeft;
+
         window.addEventListener('mousemove', onMoveHands);
         const createRollIntervalId = setInterval(() => {
             createRoll();
@@ -192,26 +230,41 @@ startGame();
 
 function onMoveHands(e) {
     const padding = canvas.width / 10;
+    const leftHands = document.getElementById('leftHands');
+    const rightHands = document.getElementById('rightHands');
+
     if (e.clientX > LEFT_POSITIONS_X - padding && e.clientX < LEFT_POSITIONS_X + POSITION_SIZE + padding) {
         if (e.clientY > TOP_POSITIONS_Y && e.clientY < TOP_POSITIONS_Y + actualHeight) {
-            actualHands = handsLeft;
+            leftHands.style.visibility = 'visible';
+            rightHands.style.visibility = 'hidden';
+
             handsCurrentPosition = HANDS_POSITIONS.topLeft;
+            leftHands.style.top = `${HANDS_POSITIONS.topLeft.y}px`;
+            leftHands.style.left = `${HANDS_POSITIONS.topLeft.x}px`;
         } else if(e.clientY > BOTTOM_POSITIONS_Y && e.clientY < BOTTOM_POSITIONS_Y + actualHeight) {
-            actualHands = handsLeft;
+            leftHands.style.visibility = 'visible';
+            rightHands.style.visibility = 'hidden';
+
             handsCurrentPosition = HANDS_POSITIONS.bottomLeft;
+            leftHands.style.top = `${HANDS_POSITIONS.bottomLeft.y}px`;
+            leftHands.style.left = `${HANDS_POSITIONS.bottomLeft.x}px`;
         }
     } else if (e.clientX > RIGHT_POSITIONS_X - padding && e.clientX < RIGHT_POSITIONS_X + actualHeight + padding) {
         if (e.clientY > TOP_POSITIONS_Y && e.clientY < TOP_POSITIONS_Y + actualHeight) {
-            actualHands = handsRight;
+            leftHands.style.visibility = 'hidden';
+            rightHands.style.visibility = 'visible';
+
             handsCurrentPosition = HANDS_POSITIONS.topRight;
+            rightHands.style.top = `${HANDS_POSITIONS.topRight.y}px`;
+            rightHands.style.left = `${HANDS_POSITIONS.topRight.x - 50}px`;
         } else if(e.clientY > BOTTOM_POSITIONS_Y && e.clientY < BOTTOM_POSITIONS_Y + actualHeight) {
+            leftHands.style.visibility = 'hidden';
+            rightHands.style.visibility = 'visible';
+
             handsCurrentPosition = HANDS_POSITIONS.bottomRight;
-            actualHands = handsRight;
+            rightHands.style.top = `${HANDS_POSITIONS.bottomRight.y}px`;
+            rightHands.style.left = `${HANDS_POSITIONS.bottomRight.x - 50}px`;
         }
-        handsCurrentPosition = {
-            x: HANDS_POSITIONS.topRight.x - 50,
-            y: handsCurrentPosition.y
-        };
     }
     window.requestAnimationFrame(gameFrame);
 }
