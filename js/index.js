@@ -207,8 +207,8 @@ function startGame(isSecondLevel = null) {
     loadSprites();
     setTimeout(() => {
 
-        window.addEventListener('mousemove', onMoveHands);
-        window.addEventListener('gesturechange', onMoveHands, false);
+        canvas.addEventListener('mousemove', onMoveHands);
+        canvas.addEventListener('gesturechange', onMoveHands, false);
         const createRollIntervalId = setInterval(() => {
             const leftHands = document.getElementById('leftHands');
             if (handsIsCreated
@@ -224,8 +224,8 @@ function startGame(isSecondLevel = null) {
             timer--;
 
             if (timer <= 0) {
-                window.removeEventListener('mousemove', onMoveHands);
-                window.removeEventListener('gesturechange', onMoveHands, false);
+                canvas.removeEventListener('mousemove', onMoveHands);
+                canvas.removeEventListener('gesturechange', onMoveHands, false);
                 window.requestAnimationFrame(endGameFrame);
                 clearInterval(createRollIntervalId);
                 clearInterval(gameIntervalId);
