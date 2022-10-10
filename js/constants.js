@@ -9,11 +9,11 @@ const GAME_DURATION = 10000;
 let SCORES_TO_WIN = 5;
 
 const MAX_HANDS_HEIGHT = 250;
-const MIN_HANDS_HEIGHT = 200;
 
 const MIN_POSITION_HEIGHT = 200;
-const POSITION_SIZE = canvas.width / 5;
-const actualHeight = POSITION_SIZE > MIN_POSITION_HEIGHT ? POSITION_SIZE : MIN_POSITION_HEIGHT
+const POSITION_SIZE = canvas.width / 6.5;
+// const actualHeight = POSITION_SIZE > MIN_POSITION_HEIGHT ? POSITION_SIZE : MIN_POSITION_HEIGHT
+const actualHeight = canvas.height / 3.7;
 const LEFT_POSITIONS_X = canvas.width * 0.18;
 const RIGHT_POSITIONS_X = canvas.width - LEFT_POSITIONS_X - POSITION_SIZE;
 const TOP_POSITIONS_Y = canvas.height / 2.8;
