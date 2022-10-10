@@ -64,7 +64,7 @@ body {
 
 .end-game__box {
     position: absolute;
-    top: 90px;
+    bottom: 0;
     left: 0;
 
     display: flex;
@@ -75,11 +75,20 @@ body {
     height: calc(100vh - 90px);
     background-color: #9FCABE;
 
-    transform: translateY(calc(100vh - 90px));
-    transition: transform 1.5s;
+    /*transform: translateY(calc(100vh - 90px));*/
+    transform: scaleY(0);
+    transition: transform 1s;
+}
+@keyframes end-game-box-appearance-animation {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
 }
 .end-game__box-appearance {
-    transform: translateY(0);
+    transform: scaleY(1);
 }
 .end-game__lose, .end-game__win {
     display: none;
