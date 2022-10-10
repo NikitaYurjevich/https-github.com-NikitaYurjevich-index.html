@@ -241,6 +241,10 @@ function onMoveHands(e) {
     const leftHands = document.getElementById('leftHands');
     const rightHands = document.getElementById('rightHands');
 
+    alert(JSON.stringify(e));
+    alert(Object.keys(e));
+    alert(e.clientY, e.clientY);
+
     if (e.clientX > LEFT_POSITIONS_X - padding && e.clientX < LEFT_POSITIONS_X + POSITION_SIZE + padding) {
         if (e.clientY > TOP_POSITIONS_Y && e.clientY < TOP_POSITIONS_Y + actualHeight) {
             leftHands.style.visibility = 'visible';
