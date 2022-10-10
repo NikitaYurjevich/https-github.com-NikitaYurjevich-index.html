@@ -10,28 +10,26 @@
         <script src="js/index.js" defer></script>
     </head>
     <body>
-        <div class="wrapper">
-            <canvas id="canvas" width="1000" height="600"></canvas>
-            <div class="start-title-box">
-                <h2 class="start-title">Выйграй скидку в YamiYami!</h2>
-                <p class="start-description">Набери 10 очков</p>
+        <canvas id="canvas" width="1000" height="600"></canvas>
+        <div class="start-title-box">
+            <h2 class="start-title">Выйграй скидку в YamiYami!</h2>
+            <p class="start-description">Набери 10 очков</p>
+        </div>
+        <div class="end-game__box" id="endGameBox">
+            <div class="end-game__lose" id="endGameLose">
+                <h2 class="end-game__title">Почти получилось. Попробуй еще!</h2>
+                <button class="end-game__btn" onclick="startGame()">Переиграть</button>
             </div>
-            <div class="end-game__box" id="endGameBox">
-                <div class="end-game__lose" id="endGameLose">
-                    <h2 class="end-game__title">Почти получилось. Попробуй еще!</h2>
-                    <button class="end-game__btn" onclick="startGame()">Переиграть</button>
+            <div class="end-game__win" id="endGameWin">
+                <div class="end-game__win-first-level" id="endGameWinFirstLevel">
+                    <h2 class="end-game__title">Победа! Дарим промокод на 5%:</h2>
+                    <p class="end-game__promo-code">Pr0mocOdE37</p>
+                    <h2 class="end-game__title">Попробуй получить промокод на 10%:</h2>
+                    <button class="end-game__btn" onclick="startGame(true)">Переиграть</button>
                 </div>
-                <div class="end-game__win" id="endGameWin">
-                    <div class="end-game__win-first-level" id="endGameWinFirstLevel">
-                        <h2 class="end-game__title">Победа! Дарим промокод на 5%:</h2>
-                        <p class="end-game__promo-code">Pr0mocOdE37</p>
-                        <h2 class="end-game__title">Попробуй получить промокод на 10%:</h2>
-                        <button class="end-game__btn" onclick="startGame(true)">Переиграть</button>
-                    </div>
-                    <div class="end-game__win-second-level" id="endGameWinSecondLevel">
-                        <h2 class="end-game__title">Победа! Дарим промокод на 10%:</h2>
-                        <p class="end-game__promo-code">Pr0mocOdE37</p>
-                    </div>
+                <div class="end-game__win-second-level" id="endGameWinSecondLevel">
+                    <h2 class="end-game__title">Победа! Дарим промокод на 10%:</h2>
+                    <p class="end-game__promo-code">Pr0mocOdE37</p>
                 </div>
             </div>
         </div>
