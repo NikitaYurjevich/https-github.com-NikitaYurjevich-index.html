@@ -3,17 +3,33 @@
     <head>
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport" />
-        <title>YamiYami</title>
+        <title>Yami-Yami</title>
         <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link rel=preload href=img/preview-min.png as=image>
+        <link rel=preload href=img/hands_left-min.png as=image imagesrcset="img/hands_left@2x-min.png 2x, img/hands_left@3x-min.png 3x">
+        <link rel=preload href=img/hands_right-min.png as=image imagesrcset="img/hands_right@2x-min.png 2x, img/hands_right@3x-min.png 3x">
         <script src="js/constants.js" defer></script>
         <script src="js/rolls.js" defer></script>
         <script src="js/index.js" defer></script>
     </head>
     <body>
         <canvas id="canvas" width="1000" height="600"></canvas>
+        <img
+            id="leftHands"
+            src="img/hands_left-min.png"
+            srcset="img/hands_left@2x-min.png 2x, img/hands_left@3x-min.png 3x"
+            alt="Поймай 5 роллов и получи промокод в Yami-Yami"
+        />
+        <img
+            id="rightHands"
+            src="img/hands_right-min.png"
+            srcset="img/hands_right@2x-min.png 2x, img/hands_right@3x-min.png 3x"
+            alt="Поймай 5 роллов и получи промокод в Yami-Yami"
+        />
         <div class="start-title-box">
-            <h2 class="start-title">Выйграй скидку в YamiYami!</h2>
-            <p class="start-description">Набери 10 очков</p>
+            <img class="start-background" src="img/preview-min.png" alt="роллы от Yami-Yami"/>
+            <h2 class="start-title">Выйграй скидку в Yami Yami!</h2>
+            <p class="start-description">Собери 5 роллов</p>
         </div>
         <div class="end-game__box" id="endGameBox">
             <div class="end-game__lose" id="endGameLose">
@@ -23,13 +39,13 @@
             <div class="end-game__win" id="endGameWin">
                 <div class="end-game__win-first-level" id="endGameWinFirstLevel">
                     <h2 class="end-game__title">Победа! Дарим промокод на 5%:</h2>
-                    <p class="end-game__promo-code">Pr0mocOdE37</p>
+                    <p class="end-game__promo-code">sale5ma</p>
                     <h2 class="end-game__title">Попробуй получить промокод на 10%:</h2>
                     <button class="end-game__btn" onclick="startGame(true)">Переиграть</button>
                 </div>
                 <div class="end-game__win-second-level" id="endGameWinSecondLevel">
                     <h2 class="end-game__title">Победа! Дарим промокод на 10%:</h2>
-                    <p class="end-game__promo-code">Pr0mocOdE37</p>
+                    <p class="end-game__promo-code">win10</p>
                 </div>
             </div>
         </div>

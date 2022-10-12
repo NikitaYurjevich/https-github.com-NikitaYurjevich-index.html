@@ -1,11 +1,14 @@
-let handsLeft, handsRight, decorations, roll, logo;
-let actualHands;
-const loadImage = url => {
+let decorations, roll, logo;
+const loadImage = (url, isSvg = false) => {
     const image = new Image();
     image.width = canvas.width / 3 * 0.8;
     image.height = canvas.width / 3;
-    image.src = `${url}-min.png`;
-    image.srcset = `${url}-min.png 1x, ${url}@2x-min.png 2x, ${url}@3x-min.png 3x`;
+    if (isSvg) {
+        image.src = `${url}.svg`;
+    } else {
+        image.src = `${url}-min.png`;
+        image.srcset = `${url}-min.png 1x, ${url}@2x-min.png 2x, ${url}@3x-min.png 3x`;
+    }
     return image;
 }
 
@@ -43,10 +46,8 @@ const HANDS_POSITIONS = {
 let handsCurrentPosition = HANDS_POSITIONS.topLeft;
 
 function loadSprites() {
-    // handsLeft = loadImage('./img/hands_left');
-    // handsRight = loadImage('./img/hands_right');
     decorations = loadImage('./img/decorations');
-    roll = loadImage('./img/roll');
+    roll = loadImage('./img/roll', true);
     logo = loadImage('./img/logo');
 }
 
@@ -83,41 +84,7 @@ const getTimer = () => {
 const MIN_LOGO_WIDTH = 200;
 const LOGO_WIDTH = canvas.width / 5 > MIN_LOGO_WIDTH ? canvas.width / 5 : MIN_LOGO_WIDTH;
 
-// GAME
-const gameFrame = () => {
-    if (!handsIsCreated) {
-        const leftHands = document.createElement('img');
-        leftHands.id = 'leftHands';
-        leftHands.src = './img/hands_left-min.png';
-        leftHands.srcset = './img/hands_left@2x-min.png 2x, ./img/hands_left@3x-min.png 3x';
-        leftHands.width = handsHeight * 0.8;
-        leftHands.height = handsHeight;
-        leftHands.style.position = 'absolute';
-        leftHands.style.zIndex = '10';
-        leftHands.style.left = `${HANDS_POSITIONS.topLeft.x}px`;
-        leftHands.style.top = `${HANDS_POSITIONS.topLeft.y}px`;
-
-        const rightHands = document.createElement('img');
-        rightHands.id = 'rightHands';
-        rightHands.src = './img/hands_right-min.png';
-        rightHands.srcset = './img/hands_right@2x-min.png 2x, ./img/hands_right@3x-min.png 3x';
-        rightHands.width = handsHeight * 0.8;
-        rightHands.height = handsHeight;
-        rightHands.style.position = 'absolute';
-        rightHands.style.zIndex = '10';
-        rightHands.style.visibility = 'hidden';
-
-        document.body.appendChild(leftHands);
-        document.body.appendChild(rightHands);
-
-        handsIsCreated = true;
-    }
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // BACKGROUND
-    ctx.fillStyle = '#404853';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+const drawPositions = () => {
     const paddingX = canvas.width / 5;
     const paddingY = 0;
 
@@ -127,7 +94,16 @@ const gameFrame = () => {
     ctx.strokeRect(LEFT_POSITIONS_X - paddingX / 2, BOTTOM_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
     ctx.strokeRect(RIGHT_POSITIONS_X - paddingX / 2, TOP_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
     ctx.strokeRect(RIGHT_POSITIONS_X - paddingX / 2, BOTTOM_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
-    //
+}
+
+// GAME
+const gameFrame = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // BACKGROUND
+    ctx.fillStyle = '#404853';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    drawPositions();
     // ctx.strokeRect(ROLLS_POSITIONS.topLeft.first.x, ROLLS_POSITIONS.topLeft.first.y, ROLL_SIZE, ROLL_SIZE);
     // ctx.strokeRect(ROLLS_POSITIONS.topLeft.second.x, ROLLS_POSITIONS.topLeft.second.y, ROLL_SIZE, ROLL_SIZE);
     // ctx.strokeRect(ROLLS_POSITIONS.topLeft.third.x, ROLLS_POSITIONS.topLeft.third.y, ROLL_SIZE, ROLL_SIZE);
@@ -144,11 +120,6 @@ const gameFrame = () => {
     // ctx.strokeRect(ROLLS_POSITIONS.bottomRight.second.x, ROLLS_POSITIONS.bottomRight.second.y, ROLL_SIZE, ROLL_SIZE);
     // ctx.strokeRect(ROLLS_POSITIONS.bottomRight.third.x, ROLLS_POSITIONS.bottomRight.third.y, ROLL_SIZE, ROLL_SIZE);
 
-    // DRAW SPRITES
-    // if (actualHands) {
-        // ctx.imageSmoothingQuality = "high";
-        // ctx.drawImage(actualHands, handsCurrentPosition.x, handsCurrentPosition.y, canvas.width / 3 * 0.8, canvas.width / 3);
-    // }
     ctx.drawImage(decorations, -canvas.width * 0.2, canvas.height / 4, canvas.width * 1.4, canvas.height / 2);
 
     // DRAW ROLLS
@@ -192,6 +163,34 @@ function gameOverHandler() {
     }
 }
 
+const showGameControlHint = () => {
+    if (GAME_CONTROL === 'mouse') {
+        const cursor = document.createElement('img');
+        cursor.src = 'img/cursor.svg';
+        cursor.style.width = `${canvas.width / 10}px`;
+        cursor.style.top = `${TOP_POSITIONS_Y + POSITION_SIZE / 5}px`;
+        cursor.style.left = `${LEFT_POSITIONS_X + POSITION_SIZE + canvas.width / 10}px`;
+
+        cursor.style.setProperty('--step-length', `-${canvas.width / 40}px`);
+        cursor.style.setProperty('--close-to-step-length', `-${canvas.width / 5 - 10}px`);
+        cursor.classList.add('cursor-move');
+
+        document.body.appendChild(cursor);
+    } else if (GAME_CONTROL === 'finger') {
+        const cursor = document.createElement('img');
+        cursor.src = 'img/tap-finger.svg';
+        cursor.style.width = `${canvas.width / 7}px`;
+        cursor.style.top = `${TOP_POSITIONS_Y + actualHeight}px`;
+        cursor.style.left = `${LEFT_POSITIONS_X + POSITION_SIZE / 2}px`;
+
+        cursor.style.setProperty('--tap-translate-length', `-${actualHeight * 0.7}px`);
+        cursor.style.setProperty('--close-to-step-length', `-${canvas.width / 5 - 10}px`);
+        cursor.classList.add('finger-tap');
+
+        document.body.appendChild(cursor);
+    }
+};
+
 // ENTRYPOINT
 function startGame(isSecondLevel = null) {
     if (isSecondLevel) SCORES_TO_WIN = 10;
@@ -205,6 +204,9 @@ function startGame(isSecondLevel = null) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     loadSprites();
+
+    let gameIsStarted = false;
+
     setTimeout(() => {
 
         canvas.addEventListener('mousemove', onMoveHands);
@@ -220,6 +222,22 @@ function startGame(isSecondLevel = null) {
             }
             createRoll();
         }, ROLL_CREATING_SPEED);
+
+        const leftHands = document.getElementById('leftHands');
+        leftHands.width = handsHeight * 0.8;
+        leftHands.height = handsHeight;
+        leftHands.style.position = 'absolute';
+        leftHands.style.zIndex = '10';
+        leftHands.style.left = `${HANDS_POSITIONS.topLeft.x}px`;
+        leftHands.style.top = `${HANDS_POSITIONS.topLeft.y}px`;
+        const rightHands = document.getElementById('rightHands');
+        rightHands.width = handsHeight * 0.8;
+        rightHands.height = handsHeight;
+        rightHands.style.position = 'absolute';
+        rightHands.style.zIndex = '10';
+        rightHands.style.visibility = 'hidden';
+        handsIsCreated = true;
+
         const gameIntervalId = setInterval(() => {
             timer--;
 
@@ -234,8 +252,13 @@ function startGame(isSecondLevel = null) {
                 gameOverHandler();
             }
         }, 1000);
-    }, 1000);
+        gameIsStarted = true;
+    }, gameIsStarted ? 1000 : 1000 + TIME_TO_SHOW_HINT);
 }
+setTimeout(() => {
+    drawPositions();
+    showGameControlHint();
+}, 2000);
 startGame();
 
 function onMoveHands(e) {
