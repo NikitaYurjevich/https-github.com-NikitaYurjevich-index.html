@@ -204,10 +204,10 @@ function startGame(isSecondLevel = null) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     loadSprites();
-
-    let gameIsStarted = false;
+    const gameDelay = GAME_IS_STARTED ? 1000 : 1000 + TIME_FOR_SHOW_HINT
 
     setTimeout(() => {
+        GAME_IS_STARTED = true;
 
         canvas.addEventListener('mousemove', onMoveHands);
         canvas.addEventListener('gesturechange', onMoveHands, false);
@@ -252,8 +252,7 @@ function startGame(isSecondLevel = null) {
                 gameOverHandler();
             }
         }, 1000);
-        gameIsStarted = true;
-    }, gameIsStarted ? 1000 : 1000 + TIME_TO_SHOW_HINT);
+    }, gameDelay);
 }
 setTimeout(() => {
     drawPositions();

@@ -7,7 +7,8 @@ canvas.height = height;
 
 const GAME_DURATION = 10000;
 let SCORES_TO_WIN = 5;
-const TIME_TO_SHOW_HINT = 4000;
+const TIME_FOR_SHOW_HINT = 4000;
+let GAME_IS_STARTED = false;
 
 const MAX_HANDS_HEIGHT = 250;
 
