@@ -177,9 +177,13 @@ const showGameControlHint = () => {
             finger.onload = () => {
                 finger.style.setProperty('--tap-translate-length', `-${actualHeight * 0.7}px`);
                 finger.classList.add('finger-tap');
+
+                const fingerStyle = window.getComputedStyle(finger);
+
                 alert(JSON.stringify(finger))
-                alert(JSON.stringify(finger.style))
-                alert(JSON.stringify(finger.style.transform))
+                alert(JSON.stringify(fingerStyle))
+                alert(JSON.stringify(fingerStyle.transform))
+                alert(JSON.stringify(fingerStyle.getPropertyValue('transform')))
             };
             document.body.appendChild(finger);
             alert(GAME_CONTROL)
