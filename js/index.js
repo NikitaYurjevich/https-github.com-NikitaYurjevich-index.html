@@ -158,23 +158,26 @@ const showGameControlHint = () => {
         cursor.style.top = `${TOP_POSITIONS_Y + POSITION_SIZE / 5}px`;
         cursor.style.left = `${LEFT_POSITIONS_X + POSITION_SIZE + canvas.width / 10}px`;
 
-        cursor.style.setProperty('--step-length', `-${canvas.width / 40}px`);
-        cursor.style.setProperty('--close-to-step-length', `-${canvas.width / 5 - 10}px`);
-        cursor.classList.add('cursor-move');
-
+        cursor.onload = () => {
+            cursor.style.setProperty('--step-length', `-${canvas.width / 40}px`);
+            cursor.style.setProperty('--close-to-step-length', `-${canvas.width / 5 - 10}px`);
+            cursor.classList.add('cursor-move');
+        };
         document.body.appendChild(cursor);
+
     } else if (GAME_CONTROL === 'finger') {
-        const cursor = document.createElement('img');
-        cursor.src = 'img/tap-finger.svg';
-        cursor.style.width = `${canvas.width / 7}px`;
-        cursor.style.height = `${canvas.width / 7}px`;
-        cursor.style.top = `${TOP_POSITIONS_Y + actualHeight}px`;
-        cursor.style.left = `${LEFT_POSITIONS_X + POSITION_SIZE / 2}px`;
+        const finger = document.createElement('img');
+        finger.src = 'img/tap-finger.svg';
+        finger.style.width = `${canvas.width / 7}px`;
+        finger.style.height = `${canvas.width / 7}px`;
+        finger.style.top = `${TOP_POSITIONS_Y + actualHeight}px`;
+        finger.style.left = `${LEFT_POSITIONS_X + POSITION_SIZE / 2}px`;
 
-        cursor.style.setProperty('--tap-translate-length', `-${actualHeight * 0.7}px`);
-        cursor.classList.add('finger-tap');
-
-        document.body.appendChild(cursor);
+        finger.onload = () => {
+            finger.style.setProperty('--tap-translate-length', `-${actualHeight * 0.7}px`);
+            finger.classList.add('finger-tap');
+        };
+        document.body.appendChild(finger);
     }
 };
 
