@@ -57,7 +57,7 @@ body {
 }
 
 .finger-tap {
-    transform: scale(0);
+    transform: scale(0.5);
     animation: finger-animation 3s ease-in-out;
 }
 @keyframes finger-animation {
@@ -82,8 +82,8 @@ body {
         opacity: 1;
     }
     100% {
-        transform: translateY(calc(var(--tap-translate-length))) scale(0.7) rotate(-30deg);
-        -webkit-transform: translateY(calc(var(--tap-translate-length))) scale(0.7) rotate(-30deg);
+        transform: translateY(calc(var(--tap-translate-length))) scale(1) rotate(-30deg);
+        -webkit-transform: translateY(calc(var(--tap-translate-length))) scale(1) rotate(-30deg);
         opacity: 1;
     }
 }
