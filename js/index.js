@@ -179,6 +179,8 @@ const showGameControlHint = () => {
                 finger.classList.add('finger-tap');
             };
             document.body.appendChild(finger);
+            alert(GAME_CONTROL)
+            alert(JSON.stringify(finger))
         }
     } catch (e) {
         alert(JSON.stringify(e))
