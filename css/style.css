@@ -150,7 +150,7 @@ body {
 
     width: 100vw;
     height: calc(100vh - 90px);
-    background-image: url('./img/background-min.png');
+    background-image: url('./../img/background-min.png');
     background-position: -100px -100px;
     background-size: contain;
     background-color: var(--aquamarine);
