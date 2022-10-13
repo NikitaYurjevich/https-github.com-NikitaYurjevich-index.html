@@ -5,9 +5,7 @@
         <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport" />
         <title>Yami-Yami</title>
         <link href="css/style.css" rel="stylesheet" type="text/css">
-<!--        <link rel=preload href=img/preview-min.png as=image>-->
-        <link rel=preload href=img/hands_left-min.png as=image imagesrcset="img/hands_left@2x-min.png 2x, img/hands_left@3x-min.png 3x">
-        <link rel=preload href=img/hands_right-min.png as=image imagesrcset="img/hands_right@2x-min.png 2x, img/hands_right@3x-min.png 3x">
+        <link rel=preload href=img/preview-min.png as=image>
         <script src="js/constants.js" defer></script>
         <script src="js/rolls.js" defer></script>
         <script src="js/index.js" defer></script>
@@ -26,10 +24,10 @@
             srcset="img/hands_right@2x-min.png 2x, img/hands_right@3x-min.png 3x"
             alt="Поймай 5 роллов и получи промокод в Yami-Yami"
         />
-        <div class="start-title-box">
-<!--            <img class="start-background" src="img/preview-min.png" alt="роллы от Yami-Yami"/>-->
-            <h2 class="start-title">Выйграй скидку в Yami Yami!</h2>
-            <p class="start-description">Собери 5 роллов</p>
+        <div class="preview-box">
+            <img class="preview__background" src="img/preview-min.png" width="320" height="480" alt="роллы от Yami-Yami"/>
+            <h2 class="preview__title">Выйграй скидку в Yami Yami!</h2>
+            <p class="preview__description">Собери 5 роллов за 10 секунд</p>
         </div>
         <div class="end-game__box" id="endGameBox">
             <div class="end-game__lose" id="endGameLose">
@@ -46,6 +44,11 @@
                 <div class="end-game__win-second-level" id="endGameWinSecondLevel">
                     <h2 class="end-game__title">Победа! Дарим промокод на 10%:</h2>
                     <p class="end-game__promo-code">win10</p>
+                </div>
+                <div class="end-game__win-hints-box">
+                    <p class="end-game__win-hint">Cкопируй промо-код и вставь в заказ</p>
+                    <p class="end-game__win-hint">Промо-код не суммируется с другими скидками</p>
+                    <p class="end-game__win-hint">Действует до 30 ноября</p>
                 </div>
             </div>
         </div>

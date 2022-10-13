@@ -65,17 +65,17 @@ const addScore = (rollPositionId) => {
 };
 
 const getScoreboard = () => {
-    ctx.fillStyle = '#9FCABE';
+    ctx.fillStyle = AQUAMARINE;
     ctx.fillRect(0, 0, canvas.width, 100);
-    ctx.font = "48px serif";
-    ctx.fillStyle = '#FFF';
+    ctx.font = "48px Gerbera, 'PT Sans', sans-serif";
+    ctx.fillStyle = LIGHT_GRAY;
     ctx.textAlign = 'center';
     ctx.fillText(`ОЧКИ: ${SCORES._value}/${SCORES_TO_WIN}`, canvas.width / 2, 65);
 };
 const getTimer = () => {
     const secondsRemaining = timer < 10 ? `0${timer}` : `${timer}`;
-    ctx.font = "48px serif";
-    ctx.fillStyle = '#FFF';
+    ctx.font = "48px Gerbera, 'PT Sans', sans-serif\"";
+    ctx.fillStyle = LIGHT_GRAY;
     ctx.textAlign = 'center';
     ctx.fillText(`00:${secondsRemaining}`, canvas.width / 2, 150);
 };
@@ -89,7 +89,7 @@ const drawPositions = () => {
     const paddingY = 0;
 
     ctx.setLineDash([8]);
-    ctx.strokeStyle = "white";
+    ctx.strokeStyle = LIGHT_GRAY;
     ctx.strokeRect(LEFT_POSITIONS_X - paddingX / 2, TOP_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
     ctx.strokeRect(LEFT_POSITIONS_X - paddingX / 2, BOTTOM_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
     ctx.strokeRect(RIGHT_POSITIONS_X - paddingX / 2, TOP_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
@@ -100,7 +100,7 @@ const drawPositions = () => {
 const gameFrame = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // BACKGROUND
-    ctx.fillStyle = '#404853';
+    ctx.fillStyle = SLATE_GRAY;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     drawPositions();
@@ -134,7 +134,7 @@ const gameFrame = () => {
 const endGameFrame = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // BACKGROUND
-    ctx.fillStyle = '#404853';
+    ctx.fillStyle = SLATE_GRAY;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     getScoreboard();
@@ -200,7 +200,7 @@ function startGame(isSecondLevel = null) {
     document.getElementById('endGameBox').classList.remove('end-game__box-appearance')
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // BACKGROUND
-    ctx.fillStyle = '#404853';
+    ctx.fillStyle = SLATE_GRAY;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     loadSprites();
