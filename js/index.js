@@ -154,6 +154,7 @@ const showGameControlHint = () => {
         const cursor = document.createElement('img');
         cursor.src = 'img/cursor.svg';
         cursor.style.width = `${canvas.width / 10}px`;
+        cursor.style.height = `${canvas.width / 10}px`;
         cursor.style.top = `${TOP_POSITIONS_Y + POSITION_SIZE / 5}px`;
         cursor.style.left = `${LEFT_POSITIONS_X + POSITION_SIZE + canvas.width / 10}px`;
 
@@ -166,11 +167,11 @@ const showGameControlHint = () => {
         const cursor = document.createElement('img');
         cursor.src = 'img/tap-finger.svg';
         cursor.style.width = `${canvas.width / 7}px`;
+        cursor.style.height = `${canvas.width / 7}px`;
         cursor.style.top = `${TOP_POSITIONS_Y + actualHeight}px`;
         cursor.style.left = `${LEFT_POSITIONS_X + POSITION_SIZE / 2}px`;
 
         cursor.style.setProperty('--tap-translate-length', `-${actualHeight * 0.7}px`);
-        cursor.style.setProperty('--close-to-step-length', `-${canvas.width / 5 - 10}px`);
         cursor.classList.add('finger-tap');
 
         document.body.appendChild(cursor);
