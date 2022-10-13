@@ -7,14 +7,12 @@ canvas.height = height;
 
 const GAME_DURATION = 10000;
 let SCORES_TO_WIN = 5;
-const TIME_FOR_SHOW_HINT = 4000;
+const TIME_FOR_SHOW_HINT = 6000;
 let GAME_IS_STARTED = false;
 
 const MAX_HANDS_HEIGHT = 250;
 
-const MIN_POSITION_HEIGHT = 200;
 const POSITION_SIZE = canvas.width / 6.5;
-// const actualHeight = POSITION_SIZE > MIN_POSITION_HEIGHT ? POSITION_SIZE : MIN_POSITION_HEIGHT
 const actualHeight = canvas.height / 3.7;
 const LEFT_POSITIONS_X = canvas.width * 0.18;
 const RIGHT_POSITIONS_X = canvas.width - LEFT_POSITIONS_X - POSITION_SIZE;

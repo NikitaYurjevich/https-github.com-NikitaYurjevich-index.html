@@ -106,14 +106,14 @@ body {
     align-items: center;
 
     transform: scale(0,0);
-    animation: preview-appearance 2s ease-in-out;
+    animation: preview-appearance 4s ease-in-out;
 }
 
 @keyframes preview-appearance {
     0% {
         transform: scale(0,0);
     }
-    40% {
+    20% {
         transform: scale(1,1);
     }
     90% {

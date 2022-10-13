@@ -243,7 +243,7 @@ function startGame(isSecondLevel = null) {
 setTimeout(() => {
     drawPositions();
     showGameControlHint();
-}, 2000);
+}, 4000);
 startGame();
 
 function onMoveHands(e) {
