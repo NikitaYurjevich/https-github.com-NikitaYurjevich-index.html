@@ -180,10 +180,10 @@ const showGameControlHint = () => {
 
                 const fingerStyle = window.getComputedStyle(finger);
 
-                alert(JSON.stringify(finger))
-                alert(JSON.stringify(fingerStyle))
-                alert(JSON.stringify(fingerStyle.transform))
-                alert(JSON.stringify(fingerStyle.getPropertyValue('transform')))
+                alert(finger)
+                alert(fingerStyle)
+                alert(fingerStyle.width)
+                alert(fingerStyle.getPropertyValue('--tap-translate-length'))
             };
             document.body.appendChild(finger);
             alert(GAME_CONTROL)
