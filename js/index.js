@@ -177,6 +177,10 @@ const showGameControlHint = () => {
         finger.onload = () => {
             finger.style.setProperty('--tap-translate-length', `-${actualHeight * 0.7}px`);
             finger.classList.add('finger-tap');
+
+            setTimeout(() => {
+                finger.classList.add('finger-disappearance');
+            }, 3000);
         };
         document.body.appendChild(finger);
     }

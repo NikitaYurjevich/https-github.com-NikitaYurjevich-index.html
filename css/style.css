@@ -60,30 +60,28 @@ body {
     transform: scale(0.5);
     animation: finger-animation 3s ease-in-out;
 }
+.finger-disappearance {
+    transform: translateY(calc(var(--tap-translate-length))) scale(0) rotate(-30deg)
+}
 @keyframes finger-animation {
     7% {
         transform: scale(0.5);
-        -webkit-transform: scale(0.5);
         opacity: 0.5;
     }
     25% {
         transform: scale(1);
-        -webkit-transform: scale(1);
         opacity: 0.8;
     }
     80% {
         transform: translateY(calc(var(--tap-translate-length))) scale(1.5) rotate(0deg);
-        -webkit-transform: translateY(calc(var(--tap-translate-length))) scale(1.5) rotate(0deg);
         opacity: 0.8;
     }
     85% {
         transform: translateY(calc(var(--tap-translate-length))) scale(0.7) rotate(-30deg);
-        -webkit-transform: translateY(calc(var(--tap-translate-length))) scale(0.7) rotate(-30deg);
         opacity: 1;
     }
     100% {
         transform: translateY(calc(var(--tap-translate-length))) scale(1) rotate(-30deg);
-        -webkit-transform: translateY(calc(var(--tap-translate-length))) scale(1) rotate(-30deg);
         opacity: 1;
     }
 }
