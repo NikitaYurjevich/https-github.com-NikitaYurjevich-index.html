@@ -67,6 +67,7 @@ const addScore = (rollPositionId) => {
 const getScoreboard = () => {
     ctx.fillStyle = AQUAMARINE;
     ctx.fillRect(0, 0, canvas.width, 100);
+
     ctx.font = "48px Gerbera, 'PT Sans', sans-serif";
     ctx.fillStyle = LIGHT_GRAY;
     ctx.textAlign = 'center';
@@ -104,21 +105,6 @@ const gameFrame = () => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     drawPositions();
-    // ctx.strokeRect(ROLLS_POSITIONS.topLeft.first.x, ROLLS_POSITIONS.topLeft.first.y, ROLL_SIZE, ROLL_SIZE);
-    // ctx.strokeRect(ROLLS_POSITIONS.topLeft.second.x, ROLLS_POSITIONS.topLeft.second.y, ROLL_SIZE, ROLL_SIZE);
-    // ctx.strokeRect(ROLLS_POSITIONS.topLeft.third.x, ROLLS_POSITIONS.topLeft.third.y, ROLL_SIZE, ROLL_SIZE);
-    //
-    // ctx.strokeRect(ROLLS_POSITIONS.bottomLeft.first.x, ROLLS_POSITIONS.bottomLeft.first.y, ROLL_SIZE, ROLL_SIZE);
-    // ctx.strokeRect(ROLLS_POSITIONS.bottomLeft.second.x, ROLLS_POSITIONS.bottomLeft.second.y, ROLL_SIZE, ROLL_SIZE);
-    // ctx.strokeRect(ROLLS_POSITIONS.bottomLeft.third.x, ROLLS_POSITIONS.bottomLeft.third.y, ROLL_SIZE, ROLL_SIZE);
-    //
-    // ctx.strokeRect(ROLLS_POSITIONS.topRight.first.x, ROLLS_POSITIONS.topRight.first.y, ROLL_SIZE, ROLL_SIZE);
-    // ctx.strokeRect(ROLLS_POSITIONS.topRight.second.x, ROLLS_POSITIONS.topRight.second.y, ROLL_SIZE, ROLL_SIZE);
-    // ctx.strokeRect(ROLLS_POSITIONS.topRight.third.x, ROLLS_POSITIONS.topRight.third.y, ROLL_SIZE, ROLL_SIZE);
-    //
-    // ctx.strokeRect(ROLLS_POSITIONS.bottomRight.first.x, ROLLS_POSITIONS.bottomRight.first.y, ROLL_SIZE, ROLL_SIZE);
-    // ctx.strokeRect(ROLLS_POSITIONS.bottomRight.second.x, ROLLS_POSITIONS.bottomRight.second.y, ROLL_SIZE, ROLL_SIZE);
-    // ctx.strokeRect(ROLLS_POSITIONS.bottomRight.third.x, ROLLS_POSITIONS.bottomRight.third.y, ROLL_SIZE, ROLL_SIZE);
 
     ctx.drawImage(decorations, -canvas.width * 0.2, canvas.height / 4, canvas.width * 1.4, canvas.height / 2);
 

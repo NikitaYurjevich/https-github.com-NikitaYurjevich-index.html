@@ -15,17 +15,19 @@
         <img
             id="leftHands"
             src="img/hands_left-min.png"
+            loading="lazy"
             srcset="img/hands_left@2x-min.png 2x, img/hands_left@3x-min.png 3x"
             alt="Поймай 5 роллов и получи промокод в Yami-Yami"
         />
         <img
             id="rightHands"
             src="img/hands_right-min.png"
+            loading="lazy"
             srcset="img/hands_right@2x-min.png 2x, img/hands_right@3x-min.png 3x"
             alt="Поймай 5 роллов и получи промокод в Yami-Yami"
         />
         <div class="preview-box">
-            <img class="preview__background" src="img/preview-min.png" width="320" height="480" alt="роллы от Yami-Yami"/>
+            <img class="preview__background" src="img/preview-min.png" width="1440" height="2039" alt="роллы от Yami-Yami"/>
             <h2 class="preview__title">Выйграй скидку в Yami Yami!</h2>
             <p class="preview__description">Собери 5 роллов за 10 секунд</p>
         </div>
@@ -39,7 +41,7 @@
                     <h2 class="end-game__title">Победа! Дарим промокод на 5%:</h2>
                     <p class="end-game__promo-code">sale5ma</p>
                     <h2 class="end-game__title">Попробуй получить промокод на 10%:</h2>
-                    <button class="end-game__btn" onclick="startGame(true)">Переиграть</button>
+                    <button class="end-game__btn" onclick="startGame()">Переиграть</button>
                 </div>
                 <div class="end-game__win-second-level" id="endGameWinSecondLevel">
                     <h2 class="end-game__title">Победа! Дарим промокод на 10%:</h2>
