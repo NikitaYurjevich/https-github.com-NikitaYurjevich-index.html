@@ -171,19 +171,15 @@ const showGameControlHint = () => {
             finger.src = 'img/tap-finger.svg';
             finger.style.width = `${canvas.width / 7}px`;
             finger.style.height = `${canvas.width / 7}px`;
+            finger.style.position = 'absolute';
             finger.style.top = `${TOP_POSITIONS_Y + actualHeight}px`;
             finger.style.left = `${LEFT_POSITIONS_X + POSITION_SIZE / 2}px`;
 
             finger.onload = () => {
                 finger.style.setProperty('--tap-translate-length', `-${actualHeight * 0.7}px`);
                 finger.classList.add('finger-tap');
-
-                const fingerStyle = window.getComputedStyle(finger);
-
-                alert(finger)
-                alert(fingerStyle)
-                alert(fingerStyle.width)
-                alert(fingerStyle.getPropertyValue('--tap-translate-length'))
+                
+                alert(88)
             };
             document.body.appendChild(finger);
             alert(GAME_CONTROL)
