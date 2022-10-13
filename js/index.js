@@ -150,42 +150,38 @@ function gameOverHandler() {
 }
 
 const showGameControlHint = () => {
-    try {
-        if (GAME_CONTROL === 'mouse') {
-            const cursor = document.createElement('img');
-            cursor.src = 'img/cursor.svg';
-            cursor.style.width = `${canvas.width / 10}px`;
-            cursor.style.height = `${canvas.width / 10}px`;
-            cursor.style.top = `${TOP_POSITIONS_Y + POSITION_SIZE / 5}px`;
-            cursor.style.left = `${LEFT_POSITIONS_X + POSITION_SIZE + canvas.width / 10}px`;
+    if (GAME_CONTROL === 'mouse') {
+        const cursor = document.createElement('img');
+        cursor.src = 'img/cursor.svg';
+        cursor.style.width = `${canvas.width / 10}px`;
+        cursor.style.height = `${canvas.width / 10}px`;
+        cursor.style.top = `${TOP_POSITIONS_Y + POSITION_SIZE / 5}px`;
+        cursor.style.left = `${LEFT_POSITIONS_X + POSITION_SIZE + canvas.width / 10}px`;
 
-            cursor.onload = () => {
-                cursor.style.setProperty('--step-length', `-${canvas.width / 40}px`);
-                cursor.style.setProperty('--close-to-step-length', `-${canvas.width / 5 - 10}px`);
-                cursor.classList.add('cursor-move');
-            };
-            document.body.appendChild(cursor);
+        cursor.onload = () => {
+            cursor.style.setProperty('--step-length', `-${canvas.width / 40}px`);
+            cursor.style.setProperty('--close-to-step-length', `-${canvas.width / 5 - 10}px`);
+            cursor.classList.add('cursor-move');
+        };
+        document.body.appendChild(cursor);
 
-        } else if (GAME_CONTROL === 'finger') {
-            const finger = document.createElement('img');
-            finger.src = 'img/tap-finger.svg';
-            finger.style.width = `${canvas.width / 7}px`;
-            finger.style.height = `${canvas.width / 7}px`;
-            finger.style.position = 'absolute';
-            finger.style.top = `${TOP_POSITIONS_Y + actualHeight}px`;
-            finger.style.left = `${LEFT_POSITIONS_X + POSITION_SIZE / 2}px`;
+    } else if (GAME_CONTROL === 'finger') {
+        const finger = document.createElement('img');
+        finger.src = 'img/tap-finger.svg';
+        finger.style.width = `${canvas.width / 7}px`;
+        finger.style.height = `${canvas.width / 7}px`;
+        finger.style.position = 'absolute';
+        finger.style.top = `${TOP_POSITIONS_Y + actualHeight}px`;
+        finger.style.left = `${LEFT_POSITIONS_X + POSITION_SIZE / 2}px`;
 
-            finger.onload = () => {
-                finger.style.setProperty('--tap-translate-length', `-${actualHeight * 0.7}px`);
-                finger.classList.add('finger-tap');
-                
-                alert(88)
-            };
-            document.body.appendChild(finger);
-            alert(GAME_CONTROL)
-        }
-    } catch (e) {
-        alert(JSON.stringify(e))
+        finger.onload = () => {
+            finger.style.setProperty('--tap-translate-length', `-${actualHeight * 0.7}px`);
+            finger.classList.add('finger-tap');
+
+            alert(111)
+        };
+        document.body.appendChild(finger);
+        alert(GAME_CONTROL)
     }
 };
 

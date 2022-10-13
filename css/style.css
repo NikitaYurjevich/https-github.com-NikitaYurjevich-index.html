@@ -57,6 +57,7 @@ body {
 }
 
 .finger-tap {
+    transform: scale(0);
     animation: finger-animation 3s ease-in-out;
 }
 @keyframes finger-animation {
