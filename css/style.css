@@ -150,13 +150,6 @@ body {
     font-size: 42px;
     text-align: center;
 }
-.preview__description {
-    color: var(--light-gray);
-    font-family: Gerbera, 'PT Sans', sans-serif;
-    font-weight: bold;
-    font-size: 34px;
-    text-align: center;
-}
 
 .end-game__box {
     position: absolute;
