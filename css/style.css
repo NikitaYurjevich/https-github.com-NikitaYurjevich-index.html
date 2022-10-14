@@ -3,8 +3,8 @@
     font-style: normal;
     font-weight: normal;
     src: local("Gerbera"),
-    url("/css/Gerbera-Light.woff2") format("woff2"),
-    url("/css/Gerbera-Light.woff") format("woff");
+    url("./Gerbera-Light.woff2") format("woff2"),
+    url("./Gerbera-Light.woff") format("woff");
 }
 
 body {
