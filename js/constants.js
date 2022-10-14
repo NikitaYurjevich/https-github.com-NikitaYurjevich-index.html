@@ -7,7 +7,8 @@ canvas.width = document.body.clientWidth;
 canvas.height = windowHeight;
 
 const GAME_DURATION = 10000;
-let SCORES_TO_WIN = 5;
+let SCORES_FOR_DISCOUNT_1 = 5;
+let SCORES_FOR_DISCOUNT_2 = 10;
 const TIME_FOR_SHOW_HINT = 6000;
 let GAME_IS_STARTED = false;
 

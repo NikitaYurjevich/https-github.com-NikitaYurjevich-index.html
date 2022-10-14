@@ -21,6 +21,20 @@ body {
     --light-gray: #F5F9FA;
 }
 
+.exit-link {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 45px;
+    height: 45px;
+    opacity: 0.7;
+    visibility: hidden;
+}
+.exit-link__cross {
+    width: 50px;
+    height: 50px;
+}
+
 .cursor-move {
     position: absolute;
     transform: scale(0);
@@ -106,6 +120,14 @@ body {
     animation: preview-appearance 4s ease-in-out;
 }
 
+.preview__logo {
+    margin-top: 40px;
+    width: 30%;
+    min-width: 296px;
+    height: auto;
+    aspect-ratio: 296 / 59;
+}
+
 @keyframes preview-appearance {
     0% {
         transform: scale(0,0);
@@ -131,7 +153,7 @@ body {
 .preview__description {
     color: var(--light-gray);
     font-family: Gerbera, 'PT Sans', sans-serif;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 34px;
     text-align: center;
 }
@@ -232,6 +254,15 @@ body {
     background-color: var(--slategray);
     border-radius: 10px;
 }
+.end-game__promo-code-link {
+    color: var(--slategray);
+    font-family: Gerbera, 'PT Sans', sans-serif;
+    font-weight: normal;
+    font-size: 24px;
+    padding: 8px;
+    text-align: center;
+}
+
 
 @media screen and (max-width: 901px){
     .end-game__title {

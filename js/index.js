@@ -62,9 +62,6 @@ const addScore = (rollPositionId) => {
     if (rollPositionId === handsCurrentPosition.id) {
         SCORES.add();
     }
-    if (SCORES._value >= SCORES_TO_WIN) {
-        gameOverHandler();
-    }
 };
 
 const getScoreboard = () => {
@@ -74,7 +71,7 @@ const getScoreboard = () => {
     ctx.font = "48px Gerbera, 'PT Sans', sans-serif";
     ctx.fillStyle = LIGHT_GRAY;
     ctx.textAlign = 'center';
-    ctx.fillText(`ОЧКИ: ${SCORES._value}/${SCORES_TO_WIN}`, canvas.width / 2, 65);
+    ctx.fillText(`ОЧКИ: ${SCORES._value}/${SCORES_FOR_DISCOUNT_2}`, canvas.width / 2, 65);
 };
 const getTimer = () => {
     const secondsRemaining = timer < 10 ? `0${timer}` : `${timer}`;
@@ -142,15 +139,16 @@ function gameOverHandler() {
     document.getElementById('rightHands').style.visibility = 'hidden';
 
     document.getElementById('endGameBox').classList.add('end-game__box-appearance')
-    if (SCORES._value >= SCORES_TO_WIN) {
+    if (SCORES._value >= SCORES_FOR_DISCOUNT_1) {
         document.getElementById('endGameLose').style.display = 'none';
         document.getElementById('endGameWin').style.display = 'flex';
 
-        if (SCORES_TO_WIN === 5) {
-            document.getElementById('endGameWinFirstLevel').style.display = 'flex';
-        } else if (SCORES_TO_WIN === 10) {
+        if (SCORES._value >= SCORES_FOR_DISCOUNT_2) {
             document.getElementById('endGameWinFirstLevel').style.display = 'none';
             document.getElementById('endGameWinSecondLevel').style.display = 'flex';
+        } else {
+            document.getElementById('endGameWinSecondLevel').style.display = 'none';
+            document.getElementById('endGameWinFirstLevel').style.display = 'flex';
         }
     } else {
         document.getElementById('endGameWin').style.display = 'none';
@@ -197,8 +195,6 @@ const showGameControlHint = () => {
 
 // ENTRYPOINT
 function startGame(isSecondLevel = null) {
-    if (isSecondLevel) SCORES_TO_WIN = 10;
-
     timer = GAME_DURATION / 1000;
     SCORES.clear();
     document.getElementById('endGameBox').classList.remove('end-game__box-appearance')
@@ -241,6 +237,10 @@ function startGame(isSecondLevel = null) {
         rightHands.style.zIndex = '10';
         rightHands.style.visibility = 'hidden';
         handsIsCreated = true;
+
+        setTimeout(() => {
+            document.getElementById('exitLink').style.visibility = 'visible';
+        }, 3000);
 
         gameIntervalId = setInterval(() => {
             timer--;

@@ -15,40 +15,55 @@
     </head>
     <body>
         <canvas id="canvas" width="1000" height="600"></canvas>
+        <a class="exit-link" id="exitLink" href="%EXIT%">
+            <img class="exit-link__cross" src="img/cross-min.png" alt="Выйти" width="277" height="276"/>
+        </a>
         <img
             id="leftHands"
             src="img/hands_left-min.png"
-            loading="lazy"
+            width="548"
+            height="680"
             srcset="img/hands_left@2x-min.png 2x, img/hands_left@3x-min.png 3x"
             alt="Поймай 5 роллов и получи промокод в Yami-Yami"
         />
         <img
             id="rightHands"
             src="img/hands_right-min.png"
-            loading="lazy"
+            width="548"
+            height="679"
             srcset="img/hands_right@2x-min.png 2x, img/hands_right@3x-min.png 3x"
             alt="Поймай 5 роллов и получи промокод в Yami-Yami"
         />
         <div class="preview-box">
             <img class="preview__background" src="img/preview-min.png" width="480" height="680" alt="роллы от Yami-Yami"/>
-            <h2 class="preview__title">Выйграй скидку в Yami Yami!</h2>
-            <p class="preview__description">Собери 5 роллов за 10 секунд</p>
+            <img
+                class="preview__logo"
+                src="img/logo-min.png"
+                srcset="img/logo@2x-min.png 2x, img/logo@3x-min.png 3x"
+                width="296"
+                height="59"
+                alt="Логотип Yami Yami"
+            />
+            <h2 class="preview__title">Выиграй скидку в Yami Yami!</h2>
+            <p class="preview__description">Собери минимум 5 роллов за 10 секунд</p>
         </div>
         <div class="end-game__box" id="endGameBox">
             <div class="end-game__lose" id="endGameLose">
-                <h2 class="end-game__title">Почти получилось. Попробуй еще!</h2>
+                <h2 class="end-game__title">Попробуй еще раз!</h2>
                 <button class="end-game__btn" onclick="startGame()">Переиграть</button>
             </div>
             <div class="end-game__win" id="endGameWin">
                 <div class="end-game__win-first-level" id="endGameWinFirstLevel">
                     <h2 class="end-game__title">Победа! Дарим промокод на 5%:</h2>
                     <p class="end-game__promo-code">sale5ma</p>
-                    <h2 class="end-game__title">Попробуй получить промокод на 10%:</h2>
+                    <a class="end-game__promo-code-link" href="%LINK%">Воспользоваться промокодом</a>
+                    <h2 class="end-game__title">Собери 10 роллов и получи скидку 10%:</h2>
                     <button class="end-game__btn" onclick="startGame(true)">Переиграть</button>
                 </div>
                 <div class="end-game__win-second-level" id="endGameWinSecondLevel">
                     <h2 class="end-game__title">Победа! Дарим промокод на 10%:</h2>
                     <p class="end-game__promo-code">win10</p>
+                    <a class="end-game__promo-code-link" href="%LINK2%">Воспользоваться промокодом</a>
                 </div>
                 <div class="end-game__win-hints-box">
                     <p class="end-game__win-hint">Cкопируй промо-код и вставь в заказ</p>
