@@ -35,3 +35,5 @@ const bodyStyle = window.getComputedStyle(document.body);
 const LIGHT_GRAY = bodyStyle.getPropertyValue('--light-gray');
 const AQUAMARINE = bodyStyle.getPropertyValue('--aquamarine');
 const SLATE_GRAY = bodyStyle.getPropertyValue('--slategray');
+
+let gameIntervalId = null, createRollIntervalId = null

@@ -81,7 +81,7 @@ function createRoll() {
     });
     window.requestAnimationFrame(gameFrame);
     const intervalId = setInterval(() => {
-        if (timer <= 0 ) {
+        if (timer <= 0 || SCORES._value >= SCORES_TO_WIN) {
             clearInterval(intervalId);
         } else {
             const nextStep = generator.next();

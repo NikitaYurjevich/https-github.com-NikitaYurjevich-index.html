@@ -62,6 +62,9 @@ const addScore = (rollPositionId) => {
     if (rollPositionId === handsCurrentPosition.id) {
         SCORES.add();
     }
+    if (SCORES._value >= SCORES_TO_WIN) {
+        gameOverHandler();
+    }
 };
 
 const getScoreboard = () => {
@@ -128,6 +131,12 @@ const endGameFrame = () => {
 }
 
 function gameOverHandler() {
+    canvas.removeEventListener('mousemove', onMoveHands);
+    canvas.removeEventListener('gesturechange', onMoveHands, false);
+    window.requestAnimationFrame(endGameFrame);
+    clearInterval(createRollIntervalId);
+    clearInterval(gameIntervalId);
+    rollsList.length = 0;
 
     document.getElementById('leftHands').style.visibility = 'hidden';
     document.getElementById('rightHands').style.visibility = 'hidden';
@@ -206,7 +215,7 @@ function startGame(isSecondLevel = null) {
 
         canvas.addEventListener('mousemove', onMoveHands);
         canvas.addEventListener('gesturechange', onMoveHands, false);
-        const createRollIntervalId = setInterval(() => {
+        createRollIntervalId = setInterval(() => {
             const leftHands = document.getElementById('leftHands');
             if (handsIsCreated
                 && leftHands.style.visibility === 'hidden'
@@ -233,17 +242,10 @@ function startGame(isSecondLevel = null) {
         rightHands.style.visibility = 'hidden';
         handsIsCreated = true;
 
-        const gameIntervalId = setInterval(() => {
+        gameIntervalId = setInterval(() => {
             timer--;
 
             if (timer <= 0) {
-                canvas.removeEventListener('mousemove', onMoveHands);
-                canvas.removeEventListener('gesturechange', onMoveHands, false);
-                window.requestAnimationFrame(endGameFrame);
-                clearInterval(createRollIntervalId);
-                clearInterval(gameIntervalId);
-                rollsList.length = 0;
-
                 gameOverHandler();
             }
         }, 1000);

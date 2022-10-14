@@ -7,12 +7,20 @@
     url("./Gerbera-Light.woff") format("woff");
 }
 
+html {
+    height: fill-available;
+    height: -webkit-fill-available;
+}
 body {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+    min-height: 100vh;
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
     overflow: hidden;
     margin: 0;
 
@@ -23,7 +31,10 @@ body {
 
 #canvas {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
 }
 
 .cursor-move {
@@ -92,7 +103,10 @@ body {
     top: 0;
     z-index: -1;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
     object-fit: cover;
 }
 
@@ -101,7 +115,10 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
 
     display: flex;
     flex-direction: column;
@@ -152,6 +169,10 @@ body {
 
     width: 100vw;
     height: calc(100vh - 90px);
+    min-height: 100vh;
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
     background-image: url('./../img/background-min.png');
     background-size: contain;
     background-color: var(--aquamarine);
