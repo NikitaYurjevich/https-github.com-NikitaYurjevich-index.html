@@ -1,9 +1,10 @@
+const windowHeight = window.innerHeight;
+document.body.style.setProperty('--window-height', `${windowHeight}px`);
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-const width = document.body.clientWidth;
-const height = document.body.clientHeight;
-canvas.width = width;
-canvas.height = height;
+canvas.width = document.body.clientWidth;
+canvas.height = windowHeight;
 
 const GAME_DURATION = 10000;
 let SCORES_TO_WIN = 5;
@@ -36,4 +37,4 @@ const LIGHT_GRAY = bodyStyle.getPropertyValue('--light-gray');
 const AQUAMARINE = bodyStyle.getPropertyValue('--aquamarine');
 const SLATE_GRAY = bodyStyle.getPropertyValue('--slategray');
 
-let gameIntervalId = null, createRollIntervalId = null
+let gameIntervalId = null, createRollIntervalId = null;
