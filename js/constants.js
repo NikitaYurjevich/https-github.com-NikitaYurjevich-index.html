@@ -1,4 +1,4 @@
-const windowHeight = window.innerHeight;
+const windowHeight = screen.height;
 document.body.style.setProperty('--window-height', `${windowHeight}px`);
 
 const canvas = document.getElementById('canvas');

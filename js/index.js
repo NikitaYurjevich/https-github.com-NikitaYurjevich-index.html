@@ -75,7 +75,7 @@ const getScoreboard = () => {
 };
 const getTimer = () => {
     const secondsRemaining = timer < 10 ? `0${timer}` : `${timer}`;
-    ctx.font = "48px Gerbera, 'PT Sans', sans-serif\"";
+    ctx.font = "48px Gerbera, 'PT Sans', sans-serif";
     ctx.fillStyle = LIGHT_GRAY;
     ctx.textAlign = 'center';
     ctx.fillText(`00:${secondsRemaining}`, canvas.width / 2, 150);
@@ -157,6 +157,16 @@ function gameOverHandler() {
 }
 
 const showGameControlHint = () => {
+    let fontSize = canvas.width / 14;
+    if (fontSize > 42) {
+        fontSize = 42;
+    }
+    ctx.font = `${fontSize}px Gerbera, 'PT Sans', sans-serif`;
+    ctx.fillStyle = LIGHT_GRAY;
+    ctx.textAlign = 'center';
+    ctx.fillText('Собери минимум 5 роллов', canvas.width / 2, 100);
+    ctx.fillText('за 10 секунд', canvas.width / 2, 110 + fontSize);
+
     if (GAME_CONTROL === 'mouse') {
         const cursor = document.createElement('img');
         cursor.src = 'img/cursor.svg';
