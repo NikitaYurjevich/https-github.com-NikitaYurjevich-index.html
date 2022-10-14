@@ -192,7 +192,7 @@ body {
     align-items: flex-start;
     justify-content: flex-end;
     margin: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
     flex-grow: 1;
 }
 .end-game__win-hint {
@@ -200,7 +200,6 @@ body {
     font-family: Gerbera, 'PT Sans', sans-serif;
     font-weight: normal;
     margin: 8px;
-    padding-bottom: 20px;
     position: relative;
 }
 .end-game__win-hint::before {
