@@ -1,4 +1,4 @@
-const windowHeight = window.innerHeight;
+const windowHeight = document.documentElement.clientHeight;
 document.body.style.setProperty('--window-height', `${windowHeight}px`);
 
 const canvas = document.getElementById('canvas');
@@ -32,10 +32,5 @@ const mobileAndTabletCheck = function() {
     return check;
 };
 const GAME_CONTROL = mobileAndTabletCheck() ? 'finger' : 'mouse';
-
-const htmlStyle = getComputedStyle(document.documentElement);
-const LIGHT_GRAY = htmlStyle.getPropertyValue('--light-gray');
-const AQUAMARINE = htmlStyle.getPropertyValue('--aquamarine');
-const SLATE_GRAY = htmlStyle.getPropertyValue('--slategray');
 
 let gameIntervalId = null, createRollIntervalId = null;

@@ -65,18 +65,18 @@ const addScore = (rollPositionId) => {
 };
 
 const getScoreboard = () => {
-    ctx.fillStyle = AQUAMARINE;
+    ctx.fillStyle = '#6ECEB2';
     ctx.fillRect(0, 0, canvas.width, 100);
 
     ctx.font = "48px Gerbera, 'PT Sans', sans-serif";
-    ctx.fillStyle = LIGHT_GRAY;
+    ctx.fillStyle = '#F5F9FA';
     ctx.textAlign = 'center';
     ctx.fillText(`ОЧКИ: ${SCORES._value}/${SCORES_FOR_DISCOUNT_2}`, canvas.width / 2, 65);
 };
 const getTimer = () => {
     const secondsRemaining = timer < 10 ? `0${timer}` : `${timer}`;
     ctx.font = "48px Gerbera, 'PT Sans', sans-serif";
-    ctx.fillStyle = LIGHT_GRAY;
+    ctx.fillStyle = '#F5F9FA';
     ctx.textAlign = 'center';
     ctx.fillText(`00:${secondsRemaining}`, canvas.width / 2, 150);
 };
@@ -90,7 +90,7 @@ const drawPositions = () => {
     const paddingY = 0;
 
     ctx.setLineDash([8]);
-    ctx.strokeStyle = LIGHT_GRAY;
+    ctx.strokeStyle = '#F5F9FA';
     ctx.strokeRect(LEFT_POSITIONS_X - paddingX / 2, TOP_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
     ctx.strokeRect(LEFT_POSITIONS_X - paddingX / 2, BOTTOM_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
     ctx.strokeRect(RIGHT_POSITIONS_X - paddingX / 2, TOP_POSITIONS_Y - paddingY / 2, POSITION_SIZE + paddingX, actualHeight + paddingY);
@@ -101,7 +101,7 @@ const drawPositions = () => {
 const gameFrame = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // BACKGROUND
-    ctx.fillStyle = SLATE_GRAY;
+    ctx.fillStyle = '#333F48';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     drawPositions();
@@ -120,7 +120,7 @@ const gameFrame = () => {
 const endGameFrame = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // BACKGROUND
-    ctx.fillStyle = SLATE_GRAY;
+    ctx.fillStyle = '#333F48';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     getScoreboard();
@@ -162,7 +162,7 @@ const showGameControlHint = () => {
         fontSize = 42;
     }
     ctx.font = `${fontSize}px Gerbera, 'PT Sans', sans-serif`;
-    ctx.fillStyle = LIGHT_GRAY;
+    ctx.fillStyle = '#F5F9FA';
     ctx.textAlign = 'center';
     ctx.fillText('Собери минимум 5 роллов', canvas.width / 2, 100);
     ctx.fillText('за 10 секунд', canvas.width / 2, 110 + fontSize);
@@ -210,7 +210,7 @@ function startGame() {
     document.getElementById('endGameBox').classList.remove('end-game__box-appearance')
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // BACKGROUND
-    ctx.fillStyle = SLATE_GRAY;
+    ctx.fillStyle = '#333F48';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     loadSprites();
