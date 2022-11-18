@@ -1,3 +1,17 @@
+const windowHeight = document.documentElement.clientHeight;
+document.body.style.setProperty('--window-height', `${windowHeight}px`);
+
+const START_ANIMATION_TIME = 400;
+const TIME_BEFORE_SLIDES = 4500;
+const IDLE_SLIDE_TIME = 800;
+
+const textList = [
+    'Бесит, когда отвлекают от работы?',
+    'Попробуйте "Пачку" - специальный корпоративный мессенджер',
+    'В котором вас никто не прервет'
+];
+const speedList = [90, 60, 80]
+
 const getCaret = (parent) => {
     const caret = document.createElement('div');
     caret.innerHTML = '|';
@@ -18,7 +32,7 @@ const typeText = (el, elBox, text, speed, isLastSlide = false) => {
             if (!isLastSlide) {
                 setTimeout(() => {
                     elBox.classList.add('section-disappearance')
-                }, 800);
+                }, IDLE_SLIDE_TIME);
             } else {
                 const linkEl = document.getElementById('link');
                 linkEl.style.top = `${elBox.offsetTop + elBox.clientHeight + 15}px`;
@@ -29,13 +43,6 @@ const typeText = (el, elBox, text, speed, isLastSlide = false) => {
         }
     }, speed);
 };
-
-const textList = [
-    'Бесит, когда отвлекают от работы?',
-    'Попробуйте "Пачку" - специальный корпоративный мессенджер',
-    'В котором вас никто не прервет'
-];
-const speedList = [90, 60, 80]
 
 const startSliding = () => {
     const sectionsList = document.body.getElementsByClassName('section');
@@ -60,9 +67,9 @@ const startSliding = () => {
         } else {
             showSlide();
         }
-    }, 4500);
+    }, TIME_BEFORE_SLIDES);
 };
 
 setTimeout(() => {
     startSliding();
-}, 400);
+}, START_ANIMATION_TIME);
