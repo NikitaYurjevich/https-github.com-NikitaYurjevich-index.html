@@ -7,10 +7,9 @@ const IDLE_SLIDE_TIME = 800;
 
 const textList = [
     'Бесит, когда отвлекают от работы?',
-    'Попробуйте "Пачку" - специальный корпоративный мессенджер',
-    'В котором вас никто не прервет'
+    'Попробуйте "Пачку" - специальный корпоративный мессенджер, в котором вас никто не прервет',
 ];
-const speedList = [90, 60, 80]
+const speedList = [90, 50]
 
 const getCaret = (parent) => {
     const caret = document.createElement('div');
