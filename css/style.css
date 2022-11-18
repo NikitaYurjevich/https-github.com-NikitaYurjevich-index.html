@@ -4,8 +4,8 @@
     font-weight: 200;
     /* Браузер сначала попробует найти шрифт локально */
     src: local("TTCommons-Light"),
-    url("/css/TTCommons-Light.woff2") format("woff2"),
-    url("/css/TTCommons-Light.woff") format("woff");
+    url("./TTCommons-Light.woff2") format("woff2"),
+    url("./TTCommons-Light.woff") format("woff");
 }
 
 body {

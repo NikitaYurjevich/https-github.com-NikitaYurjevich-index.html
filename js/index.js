@@ -17,7 +17,6 @@ const typeText = (el, elBox, text, speed, isLastSlide = false) => {
 
             if (!isLastSlide) {
                 setTimeout(() => {
-                    console.log('___ DISAPPEARANCE ___')
                     elBox.classList.add('section-disappearance')
                 }, 800);
             } else {
