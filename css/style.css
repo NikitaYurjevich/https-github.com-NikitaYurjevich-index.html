@@ -113,7 +113,7 @@ main {
 
 .type-message-window-box {
     position: absolute;
-    bottom: 20%;
+    bottom: 15%;
     left: 15px;
 
     display: flex;
@@ -156,6 +156,9 @@ main {
 
     .section, .type-message-window {
         padding: 8px 15px;
+    }
+    .type-message-window-box {
+        bottom: 25%;
     }
 
     .message__text, .type-message-window__text, .caret {
