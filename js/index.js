@@ -1,74 +1,83 @@
-const windowHeight = document.documentElement.clientHeight;
+const headerHeight = document.querySelector('header').clientHeight;
+const windowHeight = window.screen.availHeight;
 document.body.style.setProperty('--window-height', `${windowHeight}px`);
+document.body.style.setProperty('--header-height', `${headerHeight}px`);
 
 const START_ANIMATION_TIME = 400;
 const TIME_BEFORE_SLIDES = 4500;
-const IDLE_SLIDE_TIME = 800;
 
 const textList = [
     'Бесит, когда отвлекают от работы?',
     'Попробуйте "Пачку" - специальный корпоративный мессенджер, в котором вас никто не прервет',
+    'Подробнее',
 ];
-const speedList = [90, 50]
+const speedList = [50, 30, 50];
 
-const getCaret = (parent) => {
-    const caret = document.createElement('div');
-    caret.innerHTML = '|';
-    caret.classList.add('caret');
-
-    parent.appendChild(caret);
+const toggleCaret = action => {
+    const caret = document.getElementById('caret')
+    switch (action) {
+        case 'show':
+            caret.style.visibility = 'visible';
+            break;
+        case 'hide':
+            caret.style.visibility = 'hidden';
+    }
 };
 
-const typeText = (el, elBox, text, speed, isLastSlide = false) => {
+const clickAnimation = () => {
+    const sendIcon = document.getElementById('sendMessageIcon');
+    sendIcon.classList.remove('click');
+    setTimeout(() => {
+        sendIcon.classList.add('click');
+    }, 50);
+};
+
+const typeText = (el, sentMessageBox, text, speed) => {
     text = [...text].reverse();
+    toggleCaret('hide');
     const intervalId = setInterval(() => {
         if (text.length) {
             el.innerHTML += text.pop();
         } else {
-            getCaret(el);
+            toggleCaret('show');
             clearInterval(intervalId);
 
-            if (!isLastSlide) {
-                setTimeout(() => {
-                    elBox.classList.add('section-disappearance')
-                }, IDLE_SLIDE_TIME);
-            } else {
-                const linkEl = document.getElementById('link');
-                linkEl.style.top = `${elBox.offsetTop + elBox.clientHeight + 15}px`;
-                linkEl.style.left = `${elBox.offsetLeft}px`;
+            clickAnimation();
 
-                linkEl.classList.add('link-appearance');
-            }
+            const message = sentMessageBox.querySelector('.message__text');
+            message.innerHTML = el.innerHTML;
+
+            sentMessageBox.classList.add('section-appearance');
+            el.innerHTML = '';
         }
     }, speed);
 };
 
-const startSliding = () => {
-    const sectionsList = document.body.getElementsByClassName('section');
+const start = () => {
+    const typeMessageField = document.getElementById('typeMessageField');
+    const sentMessagesList = document.body.getElementsByClassName('section');
     let currentIndex = 0;
 
-    const showSlide = () => {
-        const currentSection = sectionsList[currentIndex];
-
-        const textEl = currentSection.getElementsByClassName('section__text')[0];
-        currentSection.classList.add('section-appearance');
-
-        const isLastSlide = currentIndex === sectionsList.length - 1;
-
-        typeText(textEl, currentSection, textList[currentIndex], speedList[currentIndex], isLastSlide);
+    const typeMessage = () => {
+        typeText(
+            typeMessageField,
+            sentMessagesList[currentIndex],
+            textList[currentIndex],
+            speedList[currentIndex]
+        );
         currentIndex++;
     }
 
-    showSlide();
+    typeMessage();
     const intervalId = setInterval(() => {
-        if (currentIndex > sectionsList.length) {
+        if (currentIndex >= sentMessagesList.length) {
             clearInterval(intervalId)
         } else {
-            showSlide();
+            typeMessage();
         }
     }, TIME_BEFORE_SLIDES);
 };
 
 setTimeout(() => {
-    startSliding();
+    start();
 }, START_ANIMATION_TIME);
