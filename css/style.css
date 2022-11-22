@@ -26,6 +26,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    border-bottom: 2px solid var(--light-red);
 }
 main {
 
@@ -52,13 +54,14 @@ main {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    flex-direction: column;
 
     padding: 20px 15px;
     margin: 15px;
     max-width: 70%;
 
-    border: 1px solid var(--primary-text);
-    border-radius: 15px;
+    /*border-bottom: 1px solid var(--light-red);*/
+    /*border-radius: 15px;*/
 
     transform: translateX(150%);
     transition: transform .8s;
@@ -91,9 +94,22 @@ main {
 }
 
 .detailed-link {
-    color: var(--primary-text);
-    border-width: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin: 0 auto;
+    letter-spacing: 2px;
+
+    width: 50%;
+    color: var(--white);
+    border-width: 0;
+    border-radius: 15px;
     animation: pulsation 2s ease-in-out infinite;
+    background-color: var(--light-red);
+}
+.detailed-link__text {
+    text-align: center;
 }
 
 @keyframes pulsation {
@@ -162,6 +178,6 @@ main {
     }
 
     .message__text, .type-message-window__text, .caret {
-        font-size: 1em;
+        font-size: 1.2em;
     }
 }
