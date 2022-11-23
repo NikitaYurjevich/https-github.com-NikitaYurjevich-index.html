@@ -3,15 +3,21 @@ const windowHeight = window.screen.availHeight;
 document.body.style.setProperty('--window-height', `${windowHeight}px`);
 document.body.style.setProperty('--header-height', `${headerHeight}px`);
 
+// const containerHeight = document.getElementById('container').clientHeight;
+// const linesIcon = document.getElementById('linesIcon');
+
+// linesIcon.style.height = `${containerHeight * 1.1}px`;
+// blind.clientHeight = containerHeight;
+
 const START_ANIMATION_TIME = 400;
 const TIME_BEFORE_SLIDES = 2000;
 
 const textList = [
     'Бесит, когда отвлекают от работы?',
     'Попробуйте "Пачку" - специальный корпоративный мессенджер, в котором вас никто не прервет',
-    'Подробнее',
+    'Подробнее →',
 ];
-const speedList = [45, 30, 50];
+const speedList = [45, 40, 50];
 
 const addCaret = parent => {
     const caret = document.createElement('div')
@@ -66,31 +72,50 @@ const start = () => {
     const typeMessage = () => {
         const isLast = currentIndex === sentMessagesList.length - 1;
 
-        const showSectionAndTypeText = () => {
-            sentMessagesList[currentIndex].classList.add('section-appearance');
+        const showSectionAndTypeText = (index = currentIndex) => {
+            sentMessagesList[index].classList.add('section-appearance');
             typeText(
-                sentMessagesList[currentIndex],
-                textList[currentIndex],
-                speedList[currentIndex],
+                sentMessagesList[index],
+                textList[index],
+                speedList[index],
                 isLast,
             );
-            currentIndex++;
         }
 
         if (isLast) {
+            const currentIndexClosure = currentIndex;
+
             setTimeout(() => {
-                showSectionAndTypeText();
-            }, 1000);
+                const blindList = document.getElementsByClassName(`lines-icon__blind`);
+                for (const blind of blindList) {
+                    if (blind) {
+                        blind.classList.add('lines-icon__blind--shifted');
+                    }
+                }
+
+                const linesIconBoxList = document.getElementsByClassName('lines-icon__box');
+                for (const linesIconBox of linesIconBoxList) {
+                    if (linesIconBox) {
+                        linesIconBox.style.visibility = 'visible';
+                    }
+                }
+
+                const crossBox = document.getElementById('crossBox');
+                crossBox.classList.add('cross__box--appearance');
+
+                showSectionAndTypeText(currentIndexClosure);
+            }, 2000);
         } else {
             sentMessagesList[currentIndex].classList.add('section-appearance');
             showSectionAndTypeText();
         }
+        currentIndex++;
     }
 
     typeMessage();
     const intervalId = setInterval(() => {
         const preLast = currentIndex === sentMessagesList.length - 1;
-        if (currentIndex >= sentMessagesList.length) {
+        if (currentIndex > sentMessagesList.length - 1) {
             clearInterval(intervalId)
         } else {
             if (!preLast) {

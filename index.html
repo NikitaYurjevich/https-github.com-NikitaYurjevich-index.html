@@ -11,7 +11,7 @@
         <header class="header">
             <svg width="107" height="32" viewBox="0 0 107 32">
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g transform="translate(-157.000000, -7626.000000)" fill="#131415">
+                    <g transform="translate(-157.000000, -7626.000000)" fill="#fff">
                         <g transform="translate(157.000000, 7626.000000)">
                             <path d="M25.259,13.8902093 L28.0086575,16.6626645 C28.5446102,17.2032472 28.4612979,18.0091939 27.8225745,18.4627966 L10.2436056,30.9468682 C9.60488215,31.400471 8.65261906,31.3299598 8.11666644,30.789377 L0.353242073,22.9588838 C-0.182710537,22.4183011 -0.0993983117,21.6123545 0.539325138,21.1587517 L3.001,19.4092093 L6.96920227,23.3515443 C8.08899382,24.4638513 9.94734671,24.5993644 11.2453936,23.6915335 L25.259,13.8902093 Z" id="Rectangle-Copy-20"/>
                             <path d="M20.3276995,0.451353852 L28.1227472,8.19430085 C28.6608829,8.72883979 28.5772313,9.52577579 27.9359061,9.97430722 L10.2853316,22.3188048 C9.6440064,22.7673362 8.68786438,22.6976133 8.14972863,22.1630744 L0.354680959,14.4201274 C-0.183454785,13.8855884 -0.0998031979,13.0886524 0.541522009,12.640121 L18.1920965,0.295623473 C18.8334217,-0.152907957 19.7895638,-0.0831850914 20.3276995,0.451353852 Z" id="Path"/>
@@ -20,28 +20,35 @@
                     </g>
                 </g>
             </svg>
+            <div class="cross__box" id="crossBox">
+                <a href="%LINK2%"><div class="cross"></div></a>
+            </div>
         </header>
         <main>
-            <div class="container">
+            <div id="container" class="container">
                 <div class="section">
                     <p class="message__text"></p>
+                    <div class="lines-icon__box">
+                        <div class="lines-icon__blind lines-icon__blind--1"></div>
+                        <svg id="linesIcon" class="lines-icon" width="232" height="87" viewBox="0 0 232 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.15565 84.322C14.4743 84.322 31.85 87.7611 42.6989 81.6586C51.1614 76.8984 58.1324 74.3755 65.2492 67.5129C76.3792 56.7804 95.8919 49.7164 110.823 47.626C128.945 45.089 148.467 47.0341 166.755 47.0341C180.631 47.0341 193.835 47.9458 206.943 42.5359C212.07 40.4201 218.753 38.2587 223.279 35.0783C226.941 32.505 226.937 30.9247 228.547 27.3839C231.932 19.9371 226.431 9.71511 230.145 2.28857" stroke="#FA6400" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                 </div>
                 <div class="section">
                     <p class="message__text"></p>
+                    <div class="lines-icon__box">
+                        <div class="lines-icon__blind lines-icon__blind--2"></div>
+                        <svg id="linesIcon" class="lines-icon" width="273" height="101" viewBox="0 0 273 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.30585 98.6962C18.6218 98.6962 34.9377 98.6962 51.2537 98.6962C64.4562 98.6962 78.3451 100.443 90.8499 95.4409C107.657 88.7182 124.959 84.6892 140.094 74.2519C147.915 68.8578 154.72 63.2631 164.301 60.9939C176.494 58.1062 188.255 60.3429 200.465 60.3429C205.815 60.3429 215.509 60.9472 219.109 55.963C222.702 50.9872 223.84 44.9425 224.968 39.0355C226.078 33.2271 224.168 10.9383 231.597 8.37652C244.132 4.05405 257.527 1.74756 270.779 1.74756" stroke="#FA6400" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                 </div>
-                <a class="section detailed-link" href="%LINK%">
-                    <p class="message__text detailed-link__text"></p>
-                </a>
-<!--                <div class="type-message-window-box">-->
-<!--                    <div class="type-message-window">-->
-<!--                        <p class="type-message-window__text" id="typeMessageField"></p>-->
-<!--                        <div id="caret" class="caret">|</div>-->
-<!--                    </div>-->
-<!--                    <svg id="sendMessageIcon" width="40" height="40" viewBox="0 0 307 323" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                        <path d="M297.247 148.433C304.356 152.186 304.356 162.368 297.247 166.12L19.0165 312.988C11.3352 317.042 2.4922 310.05 4.66686 301.64L41.3525 159.781C41.7772 158.138 41.7772 156.415 41.3525 154.773L4.66686 12.9132C2.49219 4.50397 11.3352 -2.48872 19.0165 1.566L297.247 148.433Z" fill="white"/>-->
-<!--                        <path d="M293.745 159.488L15.5154 306.355C13.5951 307.369 11.3843 305.621 11.928 303.518L48.6137 161.658C49.3568 158.785 49.3568 155.769 48.6137 152.895L11.928 11.0354C11.3843 8.93316 13.595 7.18495 15.5154 8.19865L293.745 155.066C295.523 156.004 295.523 158.55 293.745 159.488Z" stroke="black" stroke-width="15"/>-->
-<!--                    </svg>-->
-<!--                </div>-->
+                <div class="section detailed-link__box">
+                    <a class="detailed-link" href="%LINK%">
+                        <p class="message__text detailed-link__text"></p>
+                    </a>
+                </div>
             </div>
         </main>
     </body>
