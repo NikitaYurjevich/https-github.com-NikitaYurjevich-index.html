@@ -225,43 +225,6 @@ header {
     animation: click 0.4s ease-in-out;
 }
 
-.lines-icon__box {
-    position: absolute;
-    bottom: -25px;
-    left: 0;
-
-    width: 100vw;
-    overflow: hidden;
-    visibility: hidden;
-}
-.lines-icon {
-    bottom: 0;
-    width: 100vw;
-}
-.lines-icon__blind {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-
-    width: 100vw;
-    height: 80px;
-    background-color: var(--white);
-
-    transition: transform 2s;
-
-}
-.lines-icon__blind--1 {
-    height: 150px;
-}
-.lines-icon__blind--2 {
-    height: 150px;
-}
-.lines-icon__blind--shifted {
-    transform: translateX(100%);
-}
-
-
 @media screen and (max-width: 901px) {
     .container {
         margin-top: calc(var(--window-height) * 0.051);
