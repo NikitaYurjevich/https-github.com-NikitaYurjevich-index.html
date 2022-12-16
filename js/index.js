@@ -1,92 +1,41 @@
-const headerHeight = document.querySelector('header').clientHeight;
-const windowHeight = window.screen.availHeight;
-document.body.style.setProperty('--window-height', `${windowHeight}px`);
-document.body.style.setProperty('--header-height', `${headerHeight}px`);
+const clipBtn = document.getElementById('clipBtn');
+const smokeSlide = document.getElementById('smokeSlide');
 
-const START_ANIMATION_TIME = 400;
-const TIME_BEFORE_SLIDES = 2000;
+const SMOKE_SLIDE_LEFT_X = 20;
+const SMOKE_SLIDE_RIGHT_X = SMOKE_SLIDE_LEFT_X + smokeSlide.clientWidth + 10;
 
-const textList = [
-    'Бесит, когда отвлекают от работы?',
-    'Попробуйте "Пачку" - специальный корпоративный мессенджер, в котором вас никто не прервет',
-    'Подробнее →',
-];
-const speedList = [45, 40, 50];
+const smokeSlideMiddle = (SMOKE_SLIDE_RIGHT_X - SMOKE_SLIDE_LEFT_X) / 2;
+smokeSlide.style.clip = `rect(auto, ${smokeSlideMiddle}px, auto, auto)`;
 
-const addCaret = parent => {
-    const caret = document.createElement('div')
-    caret.innerHTML = '|';
-    caret.classList.add('caret');
-    parent.appendChild(caret);
-};
+// const flashlight = document.getElementById('flashlight');
+// const minimumCharge = document.getElementById('minimumCharge');
+// const minimumChargeBounds = minimumCharge.getBoundingClientRect();
+// const redSignal = document.getElementById('redSignal').getBoundingClientRect();
+// console.log(redSignal)
+//
+// flashlight.style.left = `${redSignal.left}px`;
+// flashlight.style.top = `${redSignal.bottom}px`;
 
-const removeCaret = parent => {
-    const caret = parent.querySelector('.caret');
-    caret.style.display = 'none';
+const onClip = (e) => {
+    const x = e.clientX ?? e.touches[0].clientX;
+    if (x > SMOKE_SLIDE_LEFT_X && x < SMOKE_SLIDE_RIGHT_X) {
+        clipBtn.style.left = `${x - 45}px`;
+        smokeSlide.style.clip = `rect(auto, ${x - 30}px, auto, auto)`;
+    }
 }
 
-const typeText = (el, text, speed, isLast = false) => {
-    text = [...text].reverse();
-    const elText = el.querySelector('.message__text');
-    const intervalId = setInterval(() => {
-        if (text.length) {
-            elText.innerHTML += text.pop();
-        } else {
-            if (!isLast) {
-                addCaret(el)
-            }
-            clearInterval(intervalId);
-        }
-    }, speed);
-};
+clipBtn.addEventListener('mousedown', () => {
+    console.log('TI GAVNO MAUS UP')
+    window.addEventListener('mousemove', onClip);
+});
+window.addEventListener('mouseup', () => {
+    console.log('TI CHE GOVNO')
+    window.removeEventListener('mousemove', onClip);
+});
 
-const start = () => {
-    const sentMessagesList = document.body.getElementsByClassName('section');
-    let currentIndex = 0;
-
-    const typeMessage = () => {
-        const isLast = currentIndex === sentMessagesList.length - 1;
-
-        const showSectionAndTypeText = (index = currentIndex) => {
-            sentMessagesList[index].classList.add('section-appearance');
-            typeText(
-                sentMessagesList[index],
-                textList[index],
-                speedList[index],
-                isLast,
-            );
-        }
-
-        if (isLast) {
-            const currentIndexClosure = currentIndex;
-
-            setTimeout(() => {
-                const crossBox = document.getElementById('crossBox');
-                crossBox.classList.add('cross__box--appearance');
-
-                showSectionAndTypeText(currentIndexClosure);
-            }, 2000);
-        } else {
-            sentMessagesList[currentIndex].classList.add('section-appearance');
-            showSectionAndTypeText();
-        }
-        currentIndex++;
-    }
-
-    typeMessage();
-    const intervalId = setInterval(() => {
-        const preLast = currentIndex === sentMessagesList.length - 1;
-        if (currentIndex > sentMessagesList.length - 1) {
-            clearInterval(intervalId)
-        } else {
-            if (!preLast) {
-                removeCaret(sentMessagesList[currentIndex-1])
-            }
-            typeMessage();
-        }
-    }, TIME_BEFORE_SLIDES);
-};
-
-setTimeout(() => {
-    start();
-}, START_ANIMATION_TIME);
+clipBtn.addEventListener('touchstart', () => {
+    window.addEventListener('touchmove', onClip);
+});
+window.addEventListener('touchend', () => {
+    window.removeEventListener('touchmove', onClip);
+});
