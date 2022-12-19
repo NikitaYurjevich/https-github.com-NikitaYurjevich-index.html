@@ -21,25 +21,31 @@
                         <svg class="images-container__full-charge-icon" width="96" height="200">
                             <use xlink:href="#full_charge"/>
                         </svg>
+                        <div id="titleContainerNoSmoke" class="title-container title-container--no-smoke">
+                            <h2 class="title-container__subtitle">Зарядись</h2>
+                            <h1 class="title-container__title">Бросай курить</h1>
+                        </div>
                     </div>
                     <div id="smokeSlide" class="images-container__slide slide--smoke">
                         <h2 class="images-container__slide-title slide-title--smoke">Жизнь с сигаретой</h2>
-<!--                        <div>-->
-                            <svg id="minimumCharge" class="images-container__full-charge-icon" width="96" height="200">
-                                <use xlink:href="#minimum_charge"/>
-                            </svg>
-<!--                            <div id="flashlight" class="flashlight"></div>-->
-<!--                        </div>-->
+                        <svg id="minimumCharge" class="images-container__full-charge-icon" width="96" height="200" viewBox="0 0 80 167">
+                            <rect x="1" y="9.23242" width="78" height="156.768" rx="13" stroke="white" stroke-width="2"/>
+                            <rect id="redSignal" x="8" y="136" width="64.9412" height="16" rx="4" fill="#FD1B1B"/>
+                            <rect x="26.4117" y="1" width="29.0588" height="7.40845" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <div id="flashlight" class="flashlight"></div>
+                        <img class="smoke-animation" src="img/smoke-animation.gif" width="320" height="480" alt="" />
+                        <img class="smoke-static" src="img/smoke-static.png" width="3031" height="2163" alt="" />
+                        <div id="titleContainerSmoke" class="title-container title-container--smoke">
+                            <h2 class="title-container__subtitle">Зарядись</h2>
+                            <h1 class="title-container__title">Бросай курить</h1>
+                        </div>
                     </div>
                     <button id="clipBtn" class="change-image-clip-btn">
                         <svg class="images-container__duplex-arrow-icon" width="24" height="15">
                             <use xlink:href="#duplex_arrow"/>
                         </svg>
                     </button>
-                </div>
-                <div class="title-container">
-                    <h2 class="title-container__subtitle">Зарядись</h2>
-                    <h1 class="title-container__title">Бросай курить</h1>
                 </div>
             </div>
         </main>
@@ -54,11 +60,6 @@
                     <rect x="8" y="36" width="64.9412" height="16" rx="4" fill="#34C900"/>
                     <rect x="8" y="95.9707" width="64.9412" height="16" rx="4" fill="#34C900"/>
                     <rect x="25.9119" y="0.5" width="30.0588" height="8.40845" stroke="black"/>
-                </symbol>
-                <symbol id="minimum_charge" viewBox="0 0 80 167">
-                    <rect x="1" y="9.23242" width="78" height="156.768" rx="13" stroke="white" stroke-width="2"/>
-                    <rect id="redSignal" x="8" y="136" width="64.9412" height="16" rx="4" fill="#FD1B1B"/>
-                    <rect x="26.4117" y="1" width="29.0588" height="7.40845" stroke="white" stroke-width="2"/>
                 </symbol>
                 <symbol id="duplex_arrow" viewBox="0 0 20 12">
                     <line x1="4" y1="3.5" x2="16.5" y2="3.5" stroke="black"/>

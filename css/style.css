@@ -36,8 +36,8 @@ body {
 .images-container {
     position: relative;
     flex-grow: 1;
-    width: calc(100% - 60px);
-    margin: 30px 30px;
+    width: 100%;
+    /*margin: 30px 30px;*/
 }
 
 .images-container__slide {
@@ -59,9 +59,24 @@ body {
     left: 0;
     z-index: 1;
 
-    background: linear-gradient(to left bottom, black 30%, #521a1a);
+    /*background: linear-gradient(to left bottom, black 30%, #521a1a);*/
+    background-color: black;
     clip: rect(auto, 160px, auto, auto);
 }
+.smoke-animation {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    /*transform: rotate(90deg);*/
+    background: transparent;
+}
+.smoke-static {
+    position: absolute;
+    top: -5vh;
+    object-fit: contain;
+    z-index: -1;
+}
+
 .images-container__slide-title {
     margin: 10px 0;
     padding: 0 20%;
@@ -75,7 +90,7 @@ body {
 }
 .images-container__full-charge-icon {
     fill: none;
-    flex: 1;
+    flex-grow: 1;
     align-items: center;
 }
 .change-image-clip-btn {
@@ -101,26 +116,51 @@ body {
 
     width: 10%;
     height: 10px;
-    background-color: wheat;
+    background-color: #FD1B1B;
+
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    from, to {
+        box-shadow: 0 0 0 0 #FD1B1B;
+    }
+    50% {
+        box-shadow: 0 0 20px 15px #FD1B1B;
+    }
 }
 
 .title-container {
-    flex-grow: 1;
+    position: absolute;
+    bottom: 8vh;
+    /*left: 23%;*/
     display: flex;
+    /*z-index: 2;*/
+    flex-grow: 1;
+    opacity: 0;
+    transition: opacity 1s;
     flex-direction: column;
     align-items: center;
+}
+.title-container--no-smoke {
+    color: #260101;
+}
+.title-container--smoke {
+    color: #fff;
 }
 
 .title-container__subtitle {
     font-size: 1.5em;
-    color: var(--primary-text);
     margin: 0 0 1em 0;
     text-transform: uppercase;
+    /*text-shadow: 3px 3px 3px var(--no-smoke-bg-color),*/
+    /*            -3px -3px 3px var(--no-smoke-bg-color);*/
 }
 
 .title-container__title {
     font-size: 2em;
-    color: var(--primary-text);
     margin: 0;
     text-transform: uppercase;
+    /*text-shadow: 3px 3px 3px var(--no-smoke-bg-color),*/
+    /*            -3px -3px 3px var(--no-smoke-bg-color);*/
 }
