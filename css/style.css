@@ -37,7 +37,6 @@ body {
     position: relative;
     flex-grow: 1;
     width: 100%;
-    /*margin: 30px 30px;*/
 }
 
 .images-container__slide {
@@ -79,14 +78,22 @@ body {
 
 .images-container__slide-title {
     margin: 10px 0;
-    padding: 0 20%;
 
-    font-size: 2.2em;
+    position: relative;
+    z-index: 2;
+    font-size: 2em;
     text-transform: uppercase;
-    text-align: center;
 }
 .slide-title--smoke {
     color: #fff;
+    text-align: left;
+    width: 50%;
+    align-self: flex-start;
+}
+.slide-title--no-smoke {
+    text-align: right;
+    width: 50%;
+    align-self: flex-end;
 }
 .images-container__full-charge-icon {
     fill: none;
@@ -120,7 +127,6 @@ body {
 
     animation: flicker 1.5s infinite alternate;
 }
-
 @keyframes flicker {
     from, to {
         box-shadow: 0 0 0 0 #FD1B1B;
@@ -128,6 +134,31 @@ body {
     50% {
         box-shadow: 0 0 20px 15px #FD1B1B;
     }
+}
+
+@keyframes rotation {
+    to {
+        transform: rotate(360deg);
+    }
+}
+.sun-icon {
+    position: absolute;
+    top: -25%;
+    left: -20%;
+    animation: rotation 4s linear infinite;
+}
+
+@keyframes resize {
+    from, to {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.8);
+    }
+}
+.sun-icon-core {
+    transform-origin: center;
+    animation: resize 1.5s ease-in-out infinite;
 }
 
 .title-container {

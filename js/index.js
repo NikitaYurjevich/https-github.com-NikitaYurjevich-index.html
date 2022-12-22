@@ -23,7 +23,7 @@ flashlight.style.top = `${redSignal.bottom - flashlight.clientHeight - redSignal
 
 const onClip = (e) => {
     const x = e.clientX ?? e.touches[0].clientX;
-    if (x > SMOKE_SLIDE_LEFT_X && x < SMOKE_SLIDE_RIGHT_X) {
+    if (x > SMOKE_SLIDE_LEFT_X + 20 && x < SMOKE_SLIDE_RIGHT_X - 10) {
         clipBtn.style.left = `${x - 45}px`;
         smokeSlide.style.clip = `rect(auto, ${x - 30}px, auto, auto)`;
     }
