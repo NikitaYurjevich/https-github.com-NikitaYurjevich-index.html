@@ -100,7 +100,7 @@ body {
 }
 .images-container__full-charge-icon {
     fill: none;
-    flex-grow: 1;
+    flex-grow: 0.5;
     align-items: center;
 }
 .change-image-clip-btn {
@@ -166,7 +166,7 @@ body {
 
 .title-container {
     position: absolute;
-    bottom: 8vh;
+    bottom: 20vh;
     /*left: 23%;*/
     display: flex;
     /*z-index: 2;*/
