@@ -228,7 +228,7 @@ body {
     z-index: 5;
     width: 100%;
     height: 100%;
-    background-color: #000;
+    background-color: #fff;
 
     transform: translateY(100vh);
     transition: transform 1s;
@@ -239,7 +239,7 @@ body {
 
 .post-banner__image {
     position: relative;
-    top: -55px;
+    top: 0;
     left: 0;
 
     width: 100%;
@@ -249,8 +249,8 @@ body {
 
 .cross__box {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 0;
+    right: 0;
     z-index: 6;
 
     width: 50px;
@@ -266,12 +266,12 @@ body {
 
     position: absolute;
     top: 25px;
-    left: 10px;
+    left: 5px;
 
-    width: 30px;
+    width: 40px;
     height: 1px;
     /*box-shadow: 1px 1px 1px black, -1px -1px 1px black;*/
-    background-color: white;
+    background-color: #000;
 }
 .cross__box::before {
     transform: rotate(45deg);

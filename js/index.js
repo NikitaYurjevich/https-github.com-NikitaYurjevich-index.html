@@ -62,7 +62,7 @@ const onClip = (e) => {
         SMOKE_SLIDE_OPENED = true;
         titleContainerSmoke.style.opacity = '1';
     }
-    if (x <= centerX * 0.1 || x >= centerX * 1.9) {
+    if (x <= centerX * 0.5 || x >= centerX * 1.7) {
         postBanner.classList.add('postBanner--visible');
     }
 }
