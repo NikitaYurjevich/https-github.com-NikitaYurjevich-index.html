@@ -13,6 +13,9 @@ const animateSunrise = () => {
     const sunriseInterval = setInterval(() => {
         if (sunriseIteration >= 20) {
             clearInterval(sunriseInterval);
+            setTimeout(() => {
+                postBanner.classList.add('postBanner--visible');
+            }, 1000);
         } else {
             // if (sunriseIteration === 34) sunriseIteration = 36;
             // if (sunriseIteration > 35) {
@@ -44,6 +47,10 @@ flashlight.style.width = `${redSignal.width - 10}px`;
 flashlight.style.left = `${redSignal.left + 5}px`;
 flashlight.style.top = `${redSignal.bottom - flashlight.clientHeight - redSignal.height / 4}px`;
 
+document.onload = () => {
+    postBanner.classList.remove('postBanner--visible');
+}
+
 const onClip = (e) => {
     const x = e.clientX ?? e.touches[0].clientX;
     if (x > SMOKE_SLIDE_LEFT_X + 20 && x < SMOKE_SLIDE_RIGHT_X - 10) {
@@ -62,7 +69,7 @@ const onClip = (e) => {
         SMOKE_SLIDE_OPENED = true;
         titleContainerSmoke.style.opacity = '1';
     }
-    if (x <= centerX * 0.5 || x >= centerX * 1.7) {
+    if (x >= centerX * 1.7) {
         postBanner.classList.add('postBanner--visible');
     }
 }
