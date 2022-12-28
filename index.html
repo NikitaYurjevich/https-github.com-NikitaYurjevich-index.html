@@ -8,26 +8,24 @@
         <script src="js/index.js" defer></script>
     </head>
     <body>
-<!--        <header class="header">-->
-<!--            <div class="cross__box" id="crossBox">-->
-<!--                <a href="%LINK2%"><div class="cross"></div></a>-->
-<!--            </div>-->
-<!--        </header>-->
+        <div class="cross__box" id="crossBox">
+            <a href="%LINK2%"><div class="cross"></div></a>
+        </div>
         <main>
             <div class="main-container">
                 <div class="images-container">
                     <div class="images-container__slide slide--no-smoke" id="slideNoSmoke">
-                        <h2 class="images-container__slide-title slide-title--no-smoke">Здоровая жизнь</h2>
+                        <h2 class="images-container__slide-title slide-title--no-smoke" id="titleNoSmoke">Жизнь некурящего</h2>
                         <svg class="images-container__full-charge-icon" width="96" height="200">
                             <use xlink:href="#full_charge"/>
                         </svg>
-                        <button id="titleContainerNoSmoke" class="title-container title-container--no-smoke">
-                            <h2 class="title-container__subtitle">Зарядись</h2>
-                            <h1 class="title-container__title">Бросай курить</h1>
-                        </button>
+<!--                        <button id="titleContainerNoSmoke" class="title-container title-container&#45;&#45;no-smoke">-->
+<!--                            <p class="title-container__subtitle">Заряди свою батарейку.</p>-->
+<!--                            <p class="title-container__title">Бросай курить!</p>-->
+<!--                        </button>-->
                     </div>
                     <div id="smokeSlide" class="images-container__slide slide--smoke">
-                        <h2 class="images-container__slide-title slide-title--smoke">Жизнь с сигаретой</h2>
+                        <h2 class="images-container__slide-title slide-title--smoke" id="titleSmoke">Жизнь курильщика</h2>
                         <svg id="minimumCharge" class="images-container__full-charge-icon" width="96" height="200" viewBox="0 0 80 167">
                             <rect x="1" y="9.23242" width="78" height="156.768" rx="13" stroke="white" stroke-width="2"/>
                             <rect id="redSignal" x="8" y="136" width="64.9412" height="16" rx="4" fill="#FD1B1B"/>
@@ -35,11 +33,11 @@
                         </svg>
                         <div id="flashlight" class="flashlight"></div>
                         <img class="smoke-animation" src="img/smoke-animation.gif" width="320" height="480" alt="" />
-                        <img class="smoke-static" src="img/smoke-static.png" width="3031" height="2163" alt="" />
-                        <button id="titleContainerSmoke" class="title-container title-container--smoke">
-                            <h2 class="title-container__subtitle">Зарядись</h2>
-                            <h1 class="title-container__title">Бросай курить</h1>
-                        </button>
+                        <img class="smoke-static" src="img/smoke-static.png" width="1080" height="771" alt="" />
+<!--                        <button id="titleContainerSmoke" class="title-container title-container&#45;&#45;smoke">-->
+<!--                            <h2 class="title-container__subtitle">Зарядись</h2>-->
+<!--                            <h1 class="title-container__title">Бросай курить</h1>-->
+<!--                        </button>-->
                     </div>
                     <button id="clipBtn" class="change-image-clip-btn">
                         <svg class="images-container__duplex-arrow-icon" width="24" height="15">
@@ -48,6 +46,9 @@
                     </button>
                 </div>
             </div>
+            <a class="post-banner" id="postBanner">
+                <img class="post-banner__image" src="img/banner.png" width="1080" height="1920" alt="Ты сможешь, бросай курить!"/>
+            </a>
         </main>
         <svg style="display: none">
             <defs>
