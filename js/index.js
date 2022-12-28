@@ -3,30 +3,28 @@ const smokeSlide = document.getElementById('smokeSlide');
 const titleContainerNoSmoke = document.getElementById('titleNoSmoke');
 const titleContainerSmoke = document.getElementById('titleSmoke');
 
-const slideNoSmoke = document.getElementById('slideNoSmoke');
+const slideNoSmokeBg = document.getElementById('slideNoSmokeBg');
 
 const postBanner = document.getElementById('postBanner');
 
-const crossBox = document.getElementById('crossBox');
-setTimeout(() => {
-    crossBox.style.opacity = '0.7';
-}, 3000);
-
 const animateSunrise = () => {
     let sunriseIteration = 0;
+    slideNoSmokeBg.classList.add('slide--no-smoke__background-shift');
     const sunriseInterval = setInterval(() => {
-        if (sunriseIteration >= 70) {
+        if (sunriseIteration >= 20) {
             clearInterval(sunriseInterval);
         } else {
-            if (sunriseIteration === 34) sunriseIteration = 36;
-            if (sunriseIteration > 35) {
-                slideNoSmoke.style.background = `linear-gradient(to bottom, #0dffe7 0%, #FDEB00FF ${70 - sunriseIteration*0.9}%, #0dffe7 100%)`;
-            } else {
-                slideNoSmoke.style.background = `linear-gradient(to bottom, #0dffe7 0%, #0dffe7 ${20 - sunriseIteration/5}%, #FDEB00FF ${70 - sunriseIteration*0.9}%, #0dffe7 100%)`;
-            }
+            // if (sunriseIteration === 34) sunriseIteration = 36;
+            // if (sunriseIteration > 35) {
+            slideNoSmokeBg.style.background = `radial-gradient(circle at center, #FDEB00FF 0, #0dffe7 ${30 + sunriseIteration*2}%,#0dffe7, #0dffe7 100%) top`;
+                // slideNoSmoke.style.background = `linear-gradient(to bottom, #0dffe7 0%, #FDEB00FF ${70 - sunriseIteration*0.9}%, #0dffe7 100%)`;
+            // } else {
+            //     slideNoSmoke.style.background = `radial-gradient(circle at center, #FDEB00FF 0, #0dffe7 30%,#0dffe7, #FDEB00FF 100%) top`;
+                // slideNoSmoke.style.background = `linear-gradient(to bottom, #0dffe7 0%, #0dffe7 ${20 - sunriseIteration/5}%, #FDEB00FF ${70 - sunriseIteration*0.9}%, #0dffe7 100%)`;
+            // }
             sunriseIteration++;
         }
-    }, 25);
+    }, 70);
 };
 
 const SMOKE_SLIDE_LEFT_X = 20;
