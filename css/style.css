@@ -204,7 +204,7 @@ body {
     z-index: 5;
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    background-color: #0dffe7;
 
     transform: translateY(100vh);
     transition: transform 1s;
