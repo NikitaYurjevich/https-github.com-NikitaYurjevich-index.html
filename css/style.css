@@ -2,7 +2,6 @@
     font-family: "EuclidSquare";
     font-style: normal;
     font-weight: 200;
-    /* Браузер сначала попробует найти шрифт локально */
     src: local("EuclidSquare-Light"),
     url("./EuclidSquare-Light.woff2") format("woff2"),
     url("./EuclidSquare-Light.woff") format("woff");
@@ -11,7 +10,6 @@
 body {
     margin: 0;
     width: 100vw;
-    height: var(--window-height);
     overflow: hidden;
 
     --light-red: #fa6400;
@@ -51,8 +49,6 @@ body {
 }
 .slide--no-smoke {
     background-color: #0dffe7;
-    /*background: linear-gradient(to bottom, #0dffe7 0%, #FDEB00FF 70%, #0dffe7 100%);*/
-    /*background: radial-gradient(circle at top, #FDEB00FF 0, #0dffe7 30%, #0dffe7, #0dffe7 90%, #0dffe7 100%) top;*/
 }
 .slide--no-smoke__background {
     position: absolute;
@@ -76,7 +72,6 @@ body {
     left: 0;
     z-index: 1;
 
-    /*background: linear-gradient(to left bottom, black 30%, #521a1a);*/
     background-color: black;
     clip: rect(auto, 160px, auto, auto);
 }
@@ -84,7 +79,6 @@ body {
     position: absolute;
     top: 0;
     z-index: -1;
-    /*transform: rotate(90deg);*/
     background: transparent;
 }
 .smoke-static {
@@ -158,18 +152,6 @@ body {
     }
 }
 
-/*@keyframes rotation {*/
-/*    to {*/
-/*        transform: rotate(360deg);*/
-/*    }*/
-/*}*/
-/*.sun-icon {*/
-/*    position: absolute;*/
-/*    top: -25%;*/
-/*    left: -20%;*/
-/*    animation: rotation 4s linear infinite;*/
-/*}*/
-
 @keyframes resize {
     from, to {
         transform: scale(1);
@@ -182,9 +164,7 @@ body {
 .title-container {
     position: absolute;
     bottom: 20vh;
-    /*left: 23%;*/
     display: flex;
-    /*z-index: 2;*/
     flex-grow: 1;
     opacity: 0;
     transition: opacity 1s;
@@ -209,16 +189,12 @@ body {
     font-size: 1.5em;
     margin: 0 0 1em 0;
     text-transform: uppercase;
-    /*text-shadow: 3px 3px 3px var(--no-smoke-bg-color),*/
-    /*            -3px -3px 3px var(--no-smoke-bg-color);*/
 }
 
 .title-container__title {
     font-size: 2em;
     margin: 0;
     text-transform: uppercase;
-    /*text-shadow: 3px 3px 3px var(--no-smoke-bg-color),*/
-    /*            -3px -3px 3px var(--no-smoke-bg-color);*/
 }
 
 .post-banner {
@@ -255,11 +231,7 @@ body {
 
     width: 50px;
     height: 50px;
-    /*border-radius: 50%;*/
     opacity: 0.7;
-    /*box-shadow: 1px 1px 1px 1px black, -1px -1px 1px 1px black;*/
-
-    /*border: 1px solid white;*/
 }
 .cross__box::before, .cross__box::after {
     content: '';
@@ -270,8 +242,7 @@ body {
 
     width: 40px;
     height: 1px;
-    /*box-shadow: 1px 1px 1px black, -1px -1px 1px black;*/
-    background-color: #000;
+    background-color: #FDEB00FF;
 }
 .cross__box::before {
     transform: rotate(45deg);

@@ -17,14 +17,7 @@ const animateSunrise = () => {
                 postBanner.classList.add('postBanner--visible');
             }, 1000);
         } else {
-            // if (sunriseIteration === 34) sunriseIteration = 36;
-            // if (sunriseIteration > 35) {
             slideNoSmokeBg.style.background = `radial-gradient(circle at center, #FDEB00FF 0, #0dffe7 ${30 + sunriseIteration*2}%,#0dffe7, #0dffe7 100%) top`;
-                // slideNoSmoke.style.background = `linear-gradient(to bottom, #0dffe7 0%, #FDEB00FF ${70 - sunriseIteration*0.9}%, #0dffe7 100%)`;
-            // } else {
-            //     slideNoSmoke.style.background = `radial-gradient(circle at center, #FDEB00FF 0, #0dffe7 30%,#0dffe7, #FDEB00FF 100%) top`;
-                // slideNoSmoke.style.background = `linear-gradient(to bottom, #0dffe7 0%, #0dffe7 ${20 - sunriseIteration/5}%, #FDEB00FF ${70 - sunriseIteration*0.9}%, #0dffe7 100%)`;
-            // }
             sunriseIteration++;
         }
     }, 70);
@@ -38,7 +31,6 @@ smokeSlide.style.clip = `rect(auto, ${smokeSlideMiddle}px, auto, auto)`;
 
 let NO_SMOKE_SLIDE_OPENED = false;
 let SMOKE_SLIDE_OPENED = false;
-let TITLE_VISIBLE = false;
 
 const flashlight = document.getElementById('flashlight');
 const redSignal = document.getElementById('redSignal').getBoundingClientRect();
