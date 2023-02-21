@@ -1,4 +1,11 @@
 //////// ОБЩЕЕ //////////
+    const setDocumentHeight = () => {
+        const doc = document.documentElement;
+        doc.style.setProperty('--screen-height', `${window.innerHeight}px`);
+    };
+    setDocumentHeight();
+    window.addEventListener('resize', setDocumentHeight);
+
     const formContainer = document.getElementById('formContainer');
 
     const shiftToRight = () => {
@@ -79,7 +86,7 @@
 
 /////////////////////////
 
-//////// ФОРМА 2 ///////comment/
+//////// ФОРМА 2 ////////
     const formOTP = document.getElementById('formOTP');
     const menu = document.getElementById('menu');
     const otpPreloader = document.getElementById('otpPreloader');
