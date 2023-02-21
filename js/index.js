@@ -79,7 +79,7 @@
 
 /////////////////////////
 
-//////// ФОРМА 2 ////////
+//////// ФОРМА 2 ///////comment/
     const formOTP = document.getElementById('formOTP');
     const menu = document.getElementById('menu');
     const otpPreloader = document.getElementById('otpPreloader');
