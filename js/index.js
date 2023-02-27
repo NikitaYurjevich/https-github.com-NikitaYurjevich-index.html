@@ -1,7 +1,6 @@
 //////// ОБЩЕЕ //////////
     const setDocumentHeight = () => {
         const doc = document.documentElement;
-        alert('DOC HEIGHT: ' + window.innerHeight)
         doc.style.setProperty('--screen-height', `${window.innerHeight}px`);
     };
     setDocumentHeight();
