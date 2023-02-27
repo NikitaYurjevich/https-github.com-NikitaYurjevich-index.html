@@ -149,3 +149,7 @@
         }
     };
 /////////////////////////
+
+[phoneInput, ...document.querySelectorAll('.input--otp')].forEach(el => {
+   el.addEventListener('focus', setDocumentHeight);
+});
