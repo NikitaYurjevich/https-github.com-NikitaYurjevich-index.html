@@ -31,6 +31,7 @@ body {
 
     background-color: aqua;
     background-image: url("./SMPTE_Color_Bars.svg.png");
+    background-repeat: repeat;
     background-size: contain;
 }
 
