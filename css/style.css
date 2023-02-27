@@ -28,6 +28,10 @@ body {
     font-family: EuclidSquare, sans-serif;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+
+    background-color: aqua;
+    background-image: url("./SMPTE_Color_Bars.svg.png");
+    background-size: contain;
 }
 
 .main-container {
@@ -49,9 +53,6 @@ body {
     width: 100%;
     height: 100vh;
     height: var(--screen-height);
-    background-color: aqua;
-    background-image: url("./SMPTE_Color_Bars.svg.png");
-    background-size: contain;
 }
 
 .logo-container {
