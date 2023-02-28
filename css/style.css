@@ -14,6 +14,14 @@
     url("./EuclidSquare-Light.woff") format("woff");
 }
 
+html {
+    background-color: aqua;
+    background-image: url("./Test-Logo.svg.png");
+    background-repeat: repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
 body {
     margin: 0;
     width: 100%;
@@ -28,12 +36,6 @@ body {
     font-family: EuclidSquare, sans-serif;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-
-    background-color: aqua;
-    background-image: url("./Test-Logo.svg.png");
-    background-repeat: repeat;
-    background-position: center center;
-    background-size: cover;
 }
 
 .main-container {
