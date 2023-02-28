@@ -33,7 +33,7 @@ body {
     background-image: url("./Test-Logo.svg.png");
     background-repeat: repeat;
     background-position: center center;
-    background-size: contain;
+    background-size: cover;
 }
 
 .main-container {
