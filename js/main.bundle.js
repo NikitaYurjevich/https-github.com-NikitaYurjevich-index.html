@@ -184,6 +184,7 @@ var OtherSlidesManager = /*#__PURE__*/_createClass(function OtherSlidesManager()
               setTimeout(function () {
                 oldSlide.classList.remove('show-animation');
                 oldSlide.classList.add('hide-animation');
+                newSlide.classList.remove('slide--hide');
                 newSlide.classList.add('show-animation');
                 if (!!options) {
                   options();

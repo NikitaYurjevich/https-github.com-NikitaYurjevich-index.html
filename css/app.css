@@ -39,25 +39,27 @@
     transform: translateY(0);
   }
 }
-html {
-  overflow: hidden;
-}
-
 body {
   margin: 0;
-  overflow-y: hidden;
   box-sizing: border-box;
 }
 
 .main-container {
   width: 100%;
   height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .slide {
+  display: block;
   height: 100vh;
   overflow: hidden;
+}
+
+.slide--hide {
+  display: none;
+  transform: translateX(200%);
+  opacity: 0;
 }
 
 .slide__container {
@@ -70,11 +72,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.slide--hide {
-  transform: translateX(200%);
-  opacity: 0;
 }
 
 .hide-animation {
@@ -193,6 +190,9 @@ body {
   background: linear-gradient(137.74deg, #FF4B00 14.75%, #FFA200 86.2%);
   border-radius: 50%;
   transform: scale(5);
+}
+
+.first-slide__background--appearance {
   animation: background-appearance 3s ease-in-out;
 }
 
@@ -255,6 +255,18 @@ body {
 @keyframes slide-disappearance {
   to {
     opacity: 0;
+  }
+}
+.second-slide--show-animation {
+  animation: second-slide-show-animation 0.7s ease-in-out;
+}
+
+@keyframes second-slide-show-animation {
+  from {
+    transform: translateX(700%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
 .second-slide__line-top {
@@ -378,7 +390,7 @@ body {
   transform: rotate(10deg);
   position: relative;
   top: 40px;
-  left: -10px;
+  left: -20px;
 }
 
 .fifth-slide__background {
