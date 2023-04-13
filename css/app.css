@@ -239,7 +239,7 @@ body {
 }
 
 .second-slide__image {
-  width: 70%;
+  width: 60%;
   object-fit: contain;
 }
 
@@ -390,7 +390,7 @@ body {
   transform: rotate(10deg);
   position: relative;
   top: 40px;
-  left: -20px;
+  left: -10px;
 }
 
 .fifth-slide__background {
