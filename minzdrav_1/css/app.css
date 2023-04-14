@@ -1,0 +1,438 @@
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./app/scss/styles.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat-Bold"), url("../fonts/Montserrat-Bold.ttf") format("ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat-Medium"), url("../fonts/Montserrat-Medium.ttf") format("ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat-Regular"), url("../fonts/Montserrat-Regular.ttf") format("ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@keyframes text-animation {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  60% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+html {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  overflow-y: hidden;
+  box-sizing: border-box;
+}
+
+.main-container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.slide {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.first-slide {
+  animation: disappearing 0.2s ease-in-out 2.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+@keyframes disappearing {
+  to {
+    left: -100%;
+    opacity: 0.3;
+  }
+}
+.first-slide__background {
+  position: absolute;
+  top: -27%;
+  left: -73%;
+  z-index: -1;
+  overflow-y: hidden;
+  width: 245%;
+  height: 122%;
+  background: linear-gradient(#4D43FF, #9B4AFF 100%);
+  border-radius: 50%;
+  transform: scale(3);
+  animation: background-appearance 2s ease-in-out;
+}
+
+@keyframes background-appearance {
+  from {
+    transform: translateY(-96%) scale(1);
+  }
+  10% {
+    transform: translateY(-96%) scale(1);
+  }
+  40% {
+    transform: translateY(-27%) scale(1);
+  }
+  50% {
+    transform: translateY(-27%) scale(1);
+  }
+  to {
+    transform: translateY(0) scale(3);
+  }
+}
+.first-slide__title {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 500;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  word-spacing: 3px;
+  width: 70%;
+  margin: auto;
+  padding-top: 30%;
+}
+
+.first-slide__hint {
+  position: absolute;
+  bottom: 80px;
+  color: #fff;
+  font-size: 29px;
+  font-weight: 500;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  word-spacing: 3px;
+  width: 100%;
+  margin: auto;
+  padding-top: 30%;
+}
+
+.second-slide {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: slide-disappearance 0.7s ease-in-out 2.7s;
+}
+
+@keyframes slide-disappearance {
+  to {
+    opacity: 0;
+  }
+}
+.second-slide__line-top {
+  width: 100%;
+  height: 75vh;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.second-slide__blind-top {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  width: 0;
+  height: 75vh;
+  background-color: #fff;
+  transform: rotateX(180deg) scaleX(-1);
+  animation: second-slide-open-blind-top 1.5s ease-out;
+}
+
+@keyframes second-slide-open-blind-top {
+  from {
+    width: 100%;
+  }
+  52% {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+.second-slide__line-bottom {
+  width: 100%;
+  height: 75vh;
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+}
+
+.second-slide__blind-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+  width: 0;
+  height: 75vh;
+  background-color: #fff;
+  animation: open-blind-bottom 0.5s ease-out;
+}
+
+@keyframes open-blind-bottom {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+.second-slide__text-bottom {
+  position: absolute;
+  z-index: 5;
+  bottom: 10vh;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  word-spacing: 3px;
+  animation: text-bottom-appearance 2.5s ease-in-out;
+}
+
+@keyframes text-bottom-appearance {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  60% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.third-slide {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: slide-disappearance 0.7s ease-in-out 2.4s;
+}
+
+.third-slide__line-top {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 5;
+}
+
+.third-slide__blind-top {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 6;
+  width: 0;
+  height: 33vh;
+  background-color: #fff;
+  animation: open-blind-top 0.3s ease-out;
+}
+
+@keyframes open-blind-top {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+.third-slide__text-top {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  opacity: 0.5;
+  color: #fff;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  word-spacing: 3px;
+}
+
+.third-slide__line-middle {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+}
+
+.third-slide__blind-middle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  width: 0;
+  height: 100vh;
+  background-color: #fff;
+  animation: open-blind-middle 0.7s ease-out;
+}
+
+@keyframes open-blind-middle {
+  from {
+    width: 100%;
+  }
+  45% {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+.third-slide__text-middle {
+  position: absolute;
+  z-index: 10;
+  top: 35vh;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 36px;
+  font-weight: regular;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  word-spacing: 3px;
+  animation: text-animation 1.5s ease-in-out;
+}
+
+.third-slide__line-bottom {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+.third-slide__blind-bottom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 0;
+  height: 33vh;
+  background-color: #fff;
+  animation: open-blind-bottom 1.2s ease-out;
+}
+
+@keyframes open-blind-bottom {
+  from {
+    width: 100%;
+  }
+  30% {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+.third-slide__text-bottom {
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: -20px;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 2000%;
+  font-weight: 700;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  word-spacing: 3px;
+  text-align: left;
+  line-height: 65%;
+  color: rgba(255, 255, 255, 0.5);
+  animation: text-animation 2.1s ease-in-out;
+}
+
+.fourth-slide {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: slide-disappearance 0.7s ease-in-out 2.4s;
+}
+
+.fifth-slide {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(#4D43FF, #9B4AFF 100%);
+  animation: fifth-slide-appearance 0.5s ease-in-out;
+}
+
+@keyframes fifth-slide-appearance {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fifth-slide__text-top {
+  position: absolute;
+  z-index: 10;
+  top: 8vh;
+  left: 0;
+  width: 100%;
+  padding: 0 60px;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 36px;
+  font-weight: 500;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  word-spacing: 3px;
+  animation: text-animation 1.1s ease-in-out;
+}
+
+.fifth-slide__text-bottom {
+  position: absolute;
+  z-index: 10;
+  bottom: 8vh;
+  left: 0;
+  width: 100%;
+  padding: 0 60px;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  word-spacing: 3px;
+  animation: text-animation 1.1s ease-in-out;
+}
+
+/*# sourceMappingURL=app.css.map*/
