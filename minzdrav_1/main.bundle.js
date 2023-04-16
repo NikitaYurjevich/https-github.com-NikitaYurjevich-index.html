@@ -62,7 +62,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/styles.scss */ "./app/scss/styles.scss");
 
-var LIFETIME_SECOND_SLIDE = 3400;
+var LIFETIME_SECOND_SLIDE = 3800;
 var LIFETIME_THIRD_SLIDE = 3100;
 var TIME_TO_SHOW_SECOND_SLIDE = 2500;
 var TIME_TO_HIDE_FIRST_SLIDE = 200;
